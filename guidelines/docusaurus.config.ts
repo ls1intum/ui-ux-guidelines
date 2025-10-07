@@ -138,7 +138,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `© 2025 Technische Universität München – Built with ❤️ by the UI-UX Cross Project Team at Applied Education Technologies (AET)`,
     },
     prism: {
       theme: prismThemes.github,
