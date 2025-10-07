@@ -1,0 +1,77 @@
+import Callout from "../src/components/callout";
+
+# Test
+
+These guidelines define how buttons should look, behave, and be implemented across all products.
+The goal is to ensure a **consistent, accessible, and intuitive** user experience while maintaining **flexibility and
+scalability**.
+
+## ✅ TL;DR
+
+- Use the correct variant for every button
+- Only **one primary button per page**
+- Destructive buttons always open a confirmation
+- Use spacing and corner radius consistently
+- Icon buttons must be circular and have labels
+- Don’t use links for actions or buttons for navigation
+- Avoid visual overload – use menus for secondary actions
+
+## 🧩 Button Variants
+
+Use **semantic variants** based on the button’s purpose, not its appearance.
+
+Semantic variants define the function of a button in the context of the UI, such as the ones below. Not all the
+following variants are needed in all applications.
+
+### 1.2.1. Colors / Severity
+
+| Variant                  | Use Case                                           | Typical Colors                           | Notes                                                                                                                                                                                                                                                                                                                                                                                  |
+|:-------------------------|:---------------------------------------------------|:-----------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Primary**              | Main action on a page (e.g., “Save”, “Submit”)     | Brand color background, white text       | - One per page or screen<br></br>- High contrast and visibility- Never used for destructive actions                                                                                                                                                                                                                                                                                     |
+| **Secondary**            | Secondary action (e.g., “Cancel”, “Back”)          | Neutral background or border             | - Visual fallback to primary<br></br>- Useful for “Back” or “Cancel”<br></br>- Should not compete visually with primary                                                                                                                                                                                                                                                                          |
+| **Destructive / Danger** | Dangerous or irreversible actions (e.g., “Delete”) | Red background or border                 | - Always trigger a **confirmation overlay or modal** before the action is executed<br></br>- Be **clearly labeled** (“Delete”, not “Confirm”), not “OK”<br></br>- Must never be the primary button unless it’s the only available action                                                                                                                                                         |
+| **Success**              | Successful Actions (e.g., "Confirm")               | Green background or border               | - Signals that an action will **positively confirm or resolve** something (e.g., “Mark as Done”)<br></br>- Used after success feedback (e.g., “Continue” after a successful form)                                                                                                                                                                                                           |
+| **Disabled**             | Non-interactive, inactive state of any variant     | Muted text, subdued background or border | - Be visually muted (e.g., gray background, 50–70% opacity)<br></br>- Tooltip or hint text should explain why the button is disabled<br></br>- Use `aria-disabled="true"` or `disabled` attribute<br></br>- Have no hover/focus/active interaction<br></br>- Not be clickable or keyboard-focusable<br></br>- **Never hide disabled buttons** — they should show users which actions are currently unavailable. |
+
+
+[//]: # (<details>)
+
+[//]: # (<summary>Additional Button Variants</summary>)
+
+[//]: # ()
+[//]: # (These buttons are often only used in edge cases. This list is not complete. You may want to have more/other variants.)
+
+[//]: # ()
+[//]: # (| Variant                 | Use Case                                                          | Typical Colors                                 | Notes                                                                                                                                                             |)
+
+[//]: # (|:------------------------|:------------------------------------------------------------------|:-----------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|)
+
+[//]: # (| **Tertiary**            | Less important or contextual actions                              | Text-only, no background                       | - Very low priority<br></br>- Perfect for “Show more”, “Edit”<br></br>- Works well inline with text or in lists                                                             |)
+
+[//]: # (| **Accent**              | Emphasized but not primary &#40;e.g., “Upgrade”, “Info”&#41;              | Custom accent color                            | - Used to draw attention to helpful but non-essential features &#40;e.g., upsells&#41;<br></br>- Should feel optional, not mandatory                                           |)
+
+[//]: # (| **Info**                | For actions that guide the user without commitment &#40;e.g., "Done"&#41; | Blue/gray tone or primary color, icon optional | - Used for helpful or guiding interactions &#40;e.g., “Why?”, “Learn more”&#41;<br></br>- Can contain icons<br></br>- Should never block user flow or be required to continue       |)
+
+[//]: # (| **White / Transparent** | Use on dark backgrounds &#40;e.g., hero banners, modals&#41;              | White text, transparent or subtle border       | - Only for dark surfaces &#40;e.g., hero sections, dark modals&#41;<br></br>- Text must be white and high contrast<br></br>- Should have hover/focus states to ensure accessibility |)
+
+[//]: # ()
+[//]: # (</details>)
+
+[//]: # ()
+[//]: # (> ✅
+
+[//]: # ()
+[//]: # ()
+[//]: # (<div style="background-color: #e6f7e6; border-left: 5px solid #5cb85c; padding: 15px; margin: 15px 0; border-radius: 5px;">)
+
+[//]: # (</div>)
+
+<Callout variant={"success"} content={"Use semantic color tokens like `color.button.primary.bg` or `color.button.destructive.hover`. See 🎨 [Color Guidelines](link-to-guidelines)"} />
+
+
+<Callout>
+    Use semantic color tokens like `color.button.primary.bg` or `color.button.destructive.hover`. See 🎨 [Color Guidelines](link-to-guidelines)
+</Callout>
+
+Use semantic color tokens like `color.button.primary.bg` or `color.button.destructive.hover`. See **🎨 Color Guidelines
+**.
