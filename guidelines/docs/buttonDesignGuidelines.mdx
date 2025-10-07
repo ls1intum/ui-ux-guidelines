@@ -96,3 +96,18 @@ Your button component could potentially include the following props to ensure co
 | aria-label   | string                                                  | For accessibility (especially for icon-only)     |
 | fullWidth    | boolean                                                 | Button stretches to parent width                 |
 | loading      | boolean                                                 | Shows loading indicator and disables interaction |
+
+## 🔗 Link Guidelines
+
+| Rule             | Recommendation                                           |
+|------------------|----------------------------------------------------------|
+| Appearance       | Blue text, underlined by default                         |
+| Hover            | Darker blue or underline (if not always shown)           |
+| In buttons?      | Only if styled as tertiary buttons                       |
+| Navigation links | Use semantic `<a>` tags, never fake links via `<button>` |
+| Non-nav actions  | Use buttons, not links (e.g., “Submit”, “Retry”)         |
+
+<Callout variant={"info"}>
+    Links that **look like buttons** confuse users and hurt accessibility. Use **one visual language per function**.
+    If you still need a button to redirect, please use the **redirect icon**.
+</Callout>
