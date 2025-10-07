@@ -82,3 +82,17 @@ To maintain clarity:
 ## ⚙️ Possible Button Properties
 
 Your button component could potentially include the following props to ensure complete flexibility:
+
+| Prop         | Type                                                    | Description                                      |
+|--------------|---------------------------------------------------------|--------------------------------------------------|
+| variant      | string/enum (filled, outlined)                          | Defines the button color                         |
+| severity     | string/enum (primary, secondary, tertiary, destructive) | Defines the button color                         |
+| size         | string (sm, md, lg)                                     | Controls padding and font size                   |
+| label        | string                                                  | Button label/text                                |
+| icon         | JSX/Icon component                                      | Optional icon                                    |
+| iconPosition | start \| end                                            | Icon placement                                   |
+| disabled     | boolean                                                 | Disables the button                              |
+| onClick      | function                                                | Click handler                                    |
+| aria-label   | string                                                  | For accessibility (especially for icon-only)     |
+| fullWidth    | boolean                                                 | Button stretches to parent width                 |
+| loading      | boolean                                                 | Shows loading indicator and disables interaction |
