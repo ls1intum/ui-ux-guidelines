@@ -23,7 +23,7 @@ Use **semantic variants** based on the button’s purpose, not its appearance.
 Semantic variants define the function of a button in the context of the UI, such as the ones below. Not all the
 following variants are needed in all applications.
 
-### 1.2.1. Colors / Severity
+### Colors / Severity
 
 | Variant                  | Use Case                                           | Typical Colors                           | Notes                                                                                                                                                                                                                                                                                                                                                                                                           |
 |:-------------------------|:---------------------------------------------------|:-----------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -52,3 +52,33 @@ These buttons are often only used in edge cases. This list is not complete. You 
 <Callout variant={"success"}>
     Use semantic color tokens like `color.button.primary.bg` or `color.button.destructive.hover`. See 🎨 [Color Guidelines](link-to-guidelines)
 </Callout>
+
+### States
+
+| State    | What to Use                                            |
+|----------|--------------------------------------------------------|
+| Default  | Use the token for the current variant                  |
+| Hover    | Slightly darker/lighter than base                      |
+| Active   | Higher contrast or inset shadow                        |
+| Focus    | Always show a visible focus ring (e.g., 1-2px outline) |
+| Disabled | Muted background, cursor not-allowed, no interaction   |
+
+## 🚦 Button Limits & Hierarchy
+
+To maintain clarity:
+
+| Rule                            | Recommendation                     |
+|---------------------------------|------------------------------------|
+| Max visible buttons per section | 3–4                                |
+| Max primary button per page     | 1                                  |
+| Max secondary buttons           | 2-3                                |
+| Max destructive buttons         | 1, always ask for confirmation     |
+| Use overflow or menus if…       | >3 actions or low-priority options |
+
+<Callout variant={"danger"}>
+    Avoid overwhelming users. Use dropdowns, kebab menus (⋮), or “More…” links for less-used actions.
+</Callout>
+
+## ⚙️ Possible Button Properties
+
+Your button component could potentially include the following props to ensure complete flexibility:
