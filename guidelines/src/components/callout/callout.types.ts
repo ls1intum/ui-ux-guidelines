@@ -12,7 +12,12 @@ export type CalloutProps = {
     variant?: CalloutVariant;
 };
 
-export const CALLOUT_STYLE_CONFIG = {
+// TODO make sure the banner adheres to the theme
+export const CALLOUT_STYLE_CONFIG: Record<CalloutVariant, {
+    backgroundColor: string;
+    borderColor: string;
+    icon: string;
+}> = {
     success: {
         backgroundColor: '#e6f7e6',
         borderColor: '#5cb85c',
