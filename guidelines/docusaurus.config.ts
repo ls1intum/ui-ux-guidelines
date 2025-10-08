@@ -7,8 +7,8 @@ const GUIDELINES_REPOSITORY_URL = "https://github.com/ls1intum/ui-ux-guidelines"
 const PAGE_TITLE = "UI-UX Guidelines @ AET"
 
 const config: Config = {
-  title: PAGE_TITLE,
-  tagline: 'Dinosaurs are cool',
+  title: "Welcome to the UI-UX Guidelines @ AET",
+  tagline: 'Guidelines and best practices for UI/UX design at Applied Education Technologies (AET)',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -24,7 +24,7 @@ const config: Config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
+  organizationName: 'facebook', // Usually your GitHub org/username.
   projectName: 'docusaurus', // Usually your repo name.
 
   onBrokenLinks: 'throw',
