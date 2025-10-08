@@ -3,6 +3,7 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+const GUIDELINES_REPOSITORY_URL = "https://github.com/ls1intum/ui-ux-guidelines"
 
 const config: Config = {
   title: 'My Site',
@@ -41,10 +42,8 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          editUrl: GUIDELINES_REPOSITORY_URL,
         },
         blog: {
           showReadingTime: true,
@@ -52,10 +51,8 @@ const config: Config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          editUrl: GUIDELINES_REPOSITORY_URL,
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -111,16 +108,16 @@ const config: Config = {
           title: 'Community',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: 'AET Website',
+              href: 'https://aet.cit.tum.de/',
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              label: 'AET LinkedIn',
+              href: 'https://www.linkedin.com/company/tumaet/posts/?feedView=all',
             },
             {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
+              label: 'AET Instagram',
+              href: 'https://www.instagram.com/tum.aet/',
             },
           ],
         },
@@ -128,13 +125,13 @@ const config: Config = {
           title: 'More',
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
+              label: 'GitHub - UI-UX Guidelines',
+              href: GUIDELINES_REPOSITORY_URL,
             },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
-            },
+              {
+                  label: 'GitHub - AET Projects',
+                  href: "https://github.com/ls1intum",
+              },
           ],
         },
       ],
