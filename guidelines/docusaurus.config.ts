@@ -4,9 +4,10 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 const GUIDELINES_REPOSITORY_URL = "https://github.com/ls1intum/ui-ux-guidelines"
+const PAGE_TITLE = "UI-UX Guidelines @ AET"
 
 const config: Config = {
-  title: 'My Site',
+  title: PAGE_TITLE,
   tagline: 'Dinosaurs are cool',
   favicon: 'img/favicon.ico',
 
@@ -72,10 +73,10 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'My Site',
+      title: PAGE_TITLE,
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        alt: 'TUM Logo',
+        src: 'img/tum-logo-blue.svg',
       },
       items: [
         {
