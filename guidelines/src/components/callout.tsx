@@ -1,8 +1,15 @@
 import React from 'react';
 
+export enum CalloutVariant {
+    Success = 'success',
+    Info = 'info',
+    Warning = 'warning',
+    Danger = 'danger',
+}
+
 export type CalloutProps = {
     children: React.ReactNode;
-    variant?: 'success' | 'info' | 'warning' | 'danger';
+    variant?: CalloutVariant;
 };
 
 const styleConfig = {
@@ -28,7 +35,7 @@ const styleConfig = {
     },
 };
 
-const Callout: React.FC<CalloutProps> = ({children, variant = 'success'}) => {
+const Callout: React.FC<CalloutProps> = ({children, variant = CalloutVariant.Success}) => {
     const currentStyle = styleConfig[variant];
 
     const bannerStyle: React.CSSProperties = {
