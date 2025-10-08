@@ -1,48 +1,13 @@
 import React from 'react';
-
-export enum CalloutVariant {
-    Success = 'success',
-    Info = 'info',
-    Warning = 'warning',
-    Danger = 'danger',
-}
-
-export type CalloutProps = {
-    children: React.ReactNode;
-    variant?: CalloutVariant;
-};
-
-const styleConfig = {
-    success: {
-        backgroundColor: '#e6f7e6',
-        borderColor: '#5cb85c',
-        icon: '✅',
-    },
-    info: {
-        backgroundColor: '#e7f3fe',
-        borderColor: '#2196f3',
-        icon: 'ℹ️',
-    },
-    warning: {
-        backgroundColor: '#fffbe5',
-        borderColor: '#ffc107',
-        icon: '⚠️',
-    },
-    danger: {
-        backgroundColor: '#fdecea',
-        borderColor: '#f44336',
-        icon: '🚫',
-    },
-};
+import {CALLOUT_STYLE_CONFIG, CalloutProps, CalloutVariant} from "@site/src/components/callout/callout.types";
 
 const Callout: React.FC<CalloutProps> = ({children, variant = CalloutVariant.Success}) => {
-    const currentStyle = styleConfig[variant];
+    const currentStyle = CALLOUT_STYLE_CONFIG[variant];
 
     const bannerStyle: React.CSSProperties = {
         backgroundColor: currentStyle.backgroundColor,
         borderLeft: `5px solid ${currentStyle.borderColor}`,
         padding: '15px',
-        // margin: '15px 0',
         borderRadius: '5px',
         display: 'flex',
         alignItems: 'center',
