@@ -12,30 +12,29 @@ export type CalloutProps = {
     variant?: CalloutVariant;
 };
 
-// TODO make sure the banner adheres to the theme
 export const CALLOUT_STYLE_CONFIG: Record<CalloutVariant, {
     backgroundColor: string;
     borderColor: string;
     icon: string;
 }> = {
     success: {
-        backgroundColor: '#e6f7e6',
-        borderColor: '#5cb85c',
+        backgroundColor: 'var(--ifm-color-success-contrast-background)',
+        borderColor: 'var(--ifm-color-success-dark)',
         icon: '✅',
     },
     info: {
-        backgroundColor: '#e7f3fe',
-        borderColor: '#2196f3',
+        backgroundColor: 'var(--ifm-color-info-contrast-background)',
+        borderColor: 'var(--ifm-color-info-dark)',
         icon: 'ℹ️',
     },
     warning: {
-        backgroundColor: '#fffbe5',
-        borderColor: '#ffc107',
+        backgroundColor: 'var(--ifm-color-warning-contrast-background)',
+        borderColor: 'var(--ifm-color-warning-dark)',
         icon: '⚠️',
     },
     danger: {
-        backgroundColor: '#fdecea',
-        borderColor: '#f44336',
+        backgroundColor: 'var(--ifm-color-danger-contrast-background)',
+        borderColor: 'var(--ifm-color-danger-dark)',
         icon: '🚫',
     },
 };
