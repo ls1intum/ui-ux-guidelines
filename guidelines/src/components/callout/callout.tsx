@@ -1,7 +1,7 @@
 import React from 'react';
 import {CALLOUT_STYLE_CONFIG, CalloutProps, CalloutVariant} from "@site/src/components/callout/callout.types";
 
-const Callout: React.FC<CalloutProps> = ({children, variant = CalloutVariant.Success}) => {
+const Callout: React.FC<CalloutProps> = ({children, variant = CalloutVariant.success}) => {
     const currentStyle = CALLOUT_STYLE_CONFIG[variant];
 
     const bannerStyle: React.CSSProperties = {

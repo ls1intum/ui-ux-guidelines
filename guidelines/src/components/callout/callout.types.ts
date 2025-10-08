@@ -1,10 +1,10 @@
 import React from "react";
 
 export enum CalloutVariant {
-    Success = 'success',
-    Info = 'info',
-    Warning = 'warning',
-    Danger = 'danger',
+    success = 'success',
+    info = 'info',
+    warning = 'warning',
+    danger = 'danger',
 }
 
 export type CalloutProps = {
