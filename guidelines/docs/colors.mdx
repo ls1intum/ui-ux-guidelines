@@ -1,0 +1,100 @@
+---
+sidebar_position: 3
+---
+
+import Callout from "../src/components/callout/callout";
+import {CalloutVariant} from "../src/components/callout/callout.types";
+
+# Colors
+
+This is a comprehensive, science-based, and **developer-proof UI Color Guideline** that follows modern design and accessibility standards such as **WCAG 2.1, Material Design, Design Tokens, and inclusive UX principles.**
+
+---
+
+## ✅ TL;DR
+- Use only defined color tokens (ask the designer if unsure)
+- Always apply hover, active, focus, and disabled states
+- Check color contrast using accessibility tools
+- Use semantic tokens for logic (e.g., error, success) not brand color names
+- Don’t create new shades — use the ones from the system
+- Document new uses if you have to extend the system
+- Ask: “Will a color-blind person still understand this UI?”
+
+---
+
+## 🎯 Purpose of Color in UI
+
+Color in user interfaces is not decoration — it conveys **meaning, hierarchy, interactivity,** and **status**. Misusing color can lead to confusion or inaccessibility. Good color usage:
+
+- Improves usability
+- Highlights priority elements
+- Communicates emotion and intent
+- Enhances branding (e.g., this website is from the AET research group)
+
+---
+
+## 🧠 Color Psychology (What Colors Mean)
+
+Use colors intentionally to match their psychological impact:
+
+| Color                                                                                                                                                                       | Meaning & Use Cases                                                                                           |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
+| <span style={{display: "inline-block", width: "16px", height: "16px", background: "#1976d2", borderRadius: "4px", marginRight: "8px"}}></span> Blue                         | Trust, safety, calm – good for primary actions, links, systems, peace, loyalty, competence                    |
+| <span style={{display: "inline-block", width: "16px", height: "16px", background: "#d32f2f", borderRadius: "4px", marginRight: "8px"}}></span> Red                          | Error, danger, urgency – use for destructive actions, errors, excitement, strength, love, energy              |
+| <span style={{display: "inline-block", width: "16px", height: "16px", background: "#388e3c", borderRadius: "4px", marginRight: "8px"}}></span> Green                        | Success, confirmation, positive status – use for success messages, nature, healing, freshness, quality        |
+| <span style={{display: "inline-block", width: "16px", height: "16px", background: "#fbc02d", borderRadius: "4px", marginRight: "8px"}}></span> Yellow                       | Warning, attention – good for non-critical warnings, creativity, happiness, warmth, cheer                     |
+| <span style={{display: "inline-block", width: "16px", height: "16px", background: "#f57c00", borderRadius: "4px", marginRight: "8px"}}></span> Orange                       | Activity, progress, mild warnings, confidence, bravery, sociability                                           |
+| <span style={{display: "inline-block", width: "16px", height: "16px", background: "#7b1fa2", borderRadius: "4px", marginRight: "8px"}}></span> Purple                       | Creativity, premium, mystery – good for onboarding, premium features, royalty, luxury, spirituality, ambition |
+| <span style={{display: "inline-block", width: "16px", height: "16px", background: "#212121", borderRadius: "4px", marginRight: "8px"}}></span> Black/Gray                   | Neutral, structure – used for base text, dividers, backgrounds, formality, dramatic, security                 |
+| <span style={{display: "inline-block", width: "16px", height: "16px", background: "#fff", border: "1px solid #ccc", borderRadius: "4px", marginRight: "8px"}}></span> White | Clean, open background, neutral space, honest, innocence, simplicity                                          |
+
+<Callout variant={CalloutVariant.Success}>
+    *Use color to reinforce meaning, not as the only indicator (e.g., not only a red button but also an error icon and label).*
+</Callout>
+
+---
+
+## ❗️Color Categories You Need
+To build a consistent and accessible design system, it’s essential to define a set of semantic color categories.
+These categories group colors by their functional role in the UI, such as backgrounds, text, borders, and states, rather than by their visual appearance.
+This structure ensures clarity, scalability, and easier maintenance across light and dark themes.
+Below is a list of recommended color categories that should cover all common use cases in modern web applications.
+For some applications more or not all colors are needed.
+
+| Category                         | Description                                                                                            | Examples                           |
+|----------------------------------|--------------------------------------------------------------------------------------------------------|------------------------------------|
+| Primary                          | Brand/main interaction color (sometimes two primary colors from the same color family can be helpful)  | primary buttons, important headers |
+| Secondary                        | Optional second brand color (sometimes two secondary colors from the same color family can be helpful) | accent buttons, active states      |
+| Tertiary / Accent                | Supporting color for highlights                                                                        | highlights, tags, borders          |
+| Neutral                          | Grayscale spectrum for text, backgrounds                                                               | text, backgrounds, borders         |
+| Success / Warning / Error / Info | Status colors for system feedback                                                                      | form validation, alerts, toasts    |
+| Backgrounds                      | Default, surface, elevated, modal backgrounds                                                          | page background, overlays          |
+| Borders                          | Dividers, focus rings                                                                                  | separators, outlines               |
+| Text                             | Normal, muted, disabled, inverted texts                                                                | texts, links                       |
+
+### Background Colors
+
+| Background Name | Description                                 |
+|-----------------|---------------------------------------------|
+| Page            | Main page background                        |
+| Surface         | Default surface (e.g., cards, modals)       |
+| Surface-hover   | Hover state of the surface                  |
+| Surface-active  | Active/pressed state                        |
+| Subtle          | Very light backgrounds for grouping         |
+| Inverse         | Background on dark sections (e.g., footer)  |
+| Backdrop        | Overlay backgrounds (e.g., modals, drawers) |
+
+### Text Colors
+
+| Token Name | Description                      |
+|------------|----------------------------------|
+| Primary    | Main content text                |
+| Secondary  | Less important supporting text   |
+| Disabled   | Text on disabled elements        |
+| Inverse    | Text on dark backgrounds         |
+| Brand      | Text colored with brand identity |
+| Link       | Default link text                |
+| Error      | Error messages or labels         |
+| Warning    | Warning messages or labels       |
+| Success    | Success messages or labels       |
+
