@@ -117,6 +117,19 @@ const config: Config = {
               },
           ],
         },
+        {
+          title: 'Legal',
+          items: [
+            {
+              label: 'Imprint',
+              href: '/imprint',
+            },
+            {
+              label: 'About Us',
+              href: '/about',
+            },
+          ],
+        },
       ],
       copyright: `© 2025 Technische Universität München – Built with ❤️ by the UI-UX Cross Project Team at Applied Education Technologies (AET)`,
     },
