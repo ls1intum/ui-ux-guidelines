@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { useThemeConfig } from "@docusaurus/theme-common";
 
 /**
  * A reusable, styled image component.
