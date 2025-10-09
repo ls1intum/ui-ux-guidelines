@@ -12,7 +12,16 @@ import { useThemeConfig } from "@docusaurus/theme-common";
  * @param {object} [props.style] - Optional style object to merge with default styles.
  * @returns {React.ReactElement} The rendered image component.
  */
-const Image = ({ src, alt, style, ...rest }) => {
+const Image = ({
+  src,
+  alt,
+  style,
+  ...rest
+}: {
+  src: string;
+  alt: string;
+  style?: object;
+}): React.ReactElement => {
   const defaultStyles = {
     maxWidth: "100%",
     height: "auto",
