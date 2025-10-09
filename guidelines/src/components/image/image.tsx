@@ -14,11 +14,13 @@ import PropTypes from "prop-types";
 const Image = ({
   src,
   alt,
+  size= ImageSize.medium,
   style,
   ...rest
 }: {
   src: string;
   alt: string;
+  size?: ImageSize;
   style?: object;
 }): React.ReactElement => {
   const defaultStyles = {
@@ -44,9 +46,16 @@ const Image = ({
   );
 };
 
+export enum ImageSize {
+  small = "small",
+  medium = "medium",
+  large = "large"
+}
+
 Image.propTypes = {
   src: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
+  size: PropTypes.oneOf(Object.values(ImageSize)),
   style: PropTypes.object,
 };
 
