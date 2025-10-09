@@ -11,6 +11,10 @@ const config: Config = {
   tagline: 'Guidelines and best practices for UI/UX design at Applied Education Technologies (AET)',
   favicon: 'img/tum-logo-blue.svg',
 
+  customFields: {
+    pageTitle: PAGE_TITLE,
+  },
+
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
