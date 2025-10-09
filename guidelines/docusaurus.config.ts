@@ -7,9 +7,13 @@ const GUIDELINES_REPOSITORY_URL = "https://github.com/ls1intum/ui-ux-guidelines"
 const PAGE_TITLE = "UI-UX Guidelines @ AET"
 
 const config: Config = {
-  title: "Welcome to the UI-UX Guidelines @ AET",
+  title: `Welcome to the ${PAGE_TITLE}`,
   tagline: 'Guidelines and best practices for UI/UX design at Applied Education Technologies (AET)',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/tum-logo-blue.svg',
+
+  customFields: {
+    pageTitle: PAGE_TITLE,
+  },
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -55,7 +59,7 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/tum-logo-blue.svg',
     colorMode: {
       respectPrefersColorScheme: true,
     },
