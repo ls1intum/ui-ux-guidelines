@@ -121,3 +121,45 @@ The **WCAG 2.2** defines accessibility rules under the four POUR core principles
   with:
     api_key: ${{ secrets.AXE_LINTER_API_KEY }}
     github_token: ${{ secrets.GITHUB_TOKEN }}
+```
+
+## ✅ Quick Checklist for Developers
+
+* Use real `<button>` elements with clear, visible text or accessible `aria-label`.
+* Use real `<a href="">` for all links that navigate – not `<div>` or `<span>`.
+* All interactive components (menus, modals, sliders) are fully **keyboard accessible**.
+* All buttons, inputs, links show a **visible focus ring** (never remove it!).
+* Use a **clear heading structure**: one `<h1>`, then logical levels (`<h2>`, `<h3>`, …).
+* All images have meaningful `alt` attributes, or `alt=""` if decorative.
+* Every form input has a **visible `<label>`**, and all fields are grouped logically.
+* Errors are explained in **text**, not just with color or icons.
+* Text and UI elements meet **WCAG AA contrast** (4.5:1 for body text, 3:1 for large).
+* Use **semantic HTML elements** (`<nav>`, `<main>`, `<section>`, `<ul>`, etc.).
+* Do **not rely on color alone** – always include text, icons, or shapes.
+* **Animations should be subtle and non-distracting.** If motion is used, ensure that users who prefer reduced motion can opt out through system settings.
+* All modals/dialogs are **focus-trapped** and closable with `Esc`.
+* No **keyboard traps** – users must always be able to navigate forward and back.
+* Use ARIA roles and attributes **only when needed**, and never to “fix” bad HTML.
+* Ensure **responsive layout**: zoomable, screen-reader friendly, mobile accessible.
+* Run automated tests with tools like **axe-core**, **eslint-plugin-jsx-a11y**, or **Pa11y**.
+* Test with a **screen reader** at least once (VoiceOver, NVDA, or TalkBack).
+
+---
+
+## 📖 Learn More
+
+| **Resource**                                                                         | **Description**                            |
+|:-------------------------------------------------------------------------------------|:-------------------------------------------|
+| [WCAG 2.2 Guidelines](https://www.w3.org/TR/WCAG22/)                                 | The official reference                     |
+| [WebAIM](https://webaim.org/)                                                        | Practical, accessible web dev resources    |
+| [Deque University](https://dequeuniversity.com/)                                     | Training and tools by creators of axe-core |
+| [MDN Accessibility Docs](https://developer.mozilla.org/en-US/docs/Web/Accessibility) | Developer-oriented docs                    |
+| [a11yproject.com](https://www.a11yproject.com/)                                      | Community-driven accessibility guide       |
+| [Inclusive Components](https://inclusive-components.design/)                         | Component-level a11y design patterns       |
+| [Can I Use - Accessibility Features](https://caniuse.com/)                           | Feature support by browser/platform        |
+
+
+## 📌 Final Thoughts
+Accessibility is **not a feature**, it’s a baseline. Make it part of your **design, code, review**, and **testing process** – from day one.
+
+> “Accessibility is not about disability, it’s about universal usability.”
