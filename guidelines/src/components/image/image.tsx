@@ -8,6 +8,7 @@ import PropTypes from "prop-types";
  * @param {object} props - The component props.
  * @param {string} props.src - The source URL for the image (required).
  * @param {string} props.alt - The alternative text for the image (required).
+ * @param {ImageSize} [props.size] - The size of the image (default: medium).
  * @param {object} [props.style] - Optional style object to merge with default styles.
  * @returns {React.ReactElement} The rendered image component.
  */
@@ -23,8 +24,14 @@ const Image = ({
   size?: ImageSize;
   style?: object;
 }): React.ReactElement => {
+  const sizeStyles = {
+    [ImageSize.small]: { maxWidth: "300px" },
+    [ImageSize.medium]: { maxWidth: "600px" },
+    [ImageSize.large]: { maxWidth: "100%" }
+  };
+
   const defaultStyles = {
-    maxWidth: "100%",
+    ...sizeStyles[size],
     height: "auto",
     border: "1px solid var(--ifm-color-emphasis-300)",
     borderRadius: "8px",

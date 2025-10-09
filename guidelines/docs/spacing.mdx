@@ -4,7 +4,7 @@ sidebar_position: 4
 
 import Callout from "../src/components/callout/callout";
 import {CalloutVariant} from "../src/components/callout/callout.types";
-import Image from "../src/components/image/image";
+import Image, {ImageSize} from "../src/components/image/image";
 import BestFriendsExample from './assets/best-friends-example.png';
 import BestFriendsWithConcreteExample from './assets/best-friends-with-images-example.png';
 import ProximityWithXFactors from './assets/proximity-with-x-factors.png';
@@ -18,9 +18,9 @@ This guide outlines spacing guidelines to be applied across all products. Even t
 ## Principle of Proximity
 The foundational concept that should govern the spacing of every design is the principle of proximity. This principle suggests that when elements are positioned close together, we perceive them as belonging to the same group. Conversely, we categorize elements into separate and distinct groups when they’re far apart. You should use this natural intuition to guide users through the interface by grouping related elements tightly and adding more space between elements that serve different purposes.
 
-<Image src={BestFriendsExample} alt={"Proximity examples with px values and visualization"}/>
+<Image src={BestFriendsExample} alt={"Proximity examples with px values and visualization"} />
 
-<Image src={BestFriendsWithConcreteExample} alt={"Proximity visualization with concrete example"} />
+<Image src={BestFriendsWithConcreteExample} alt={"Proximity visualization with concrete example"} size={ImageSize.large} />
 
 ## Choosing Spacing Options
 To define appropriate spacing between elements, it’s common and recommended to use the rem unit. One rem equals the font size defined on the root HTML element, which most browsers set to 16px by default. A typical practice is to choose spacing values by multiplying your base unit X (usually set as 1rem) by whole or half-unit increments. These spacing options can then be used to implement the principle of proximity.
@@ -30,4 +30,4 @@ To define appropriate spacing between elements, it’s common and recommended to
 ## Controlling Compactness
 To control how compact or spacious your design feels, the base unit can be fine-tuned to be between about 0.75 and 1.25 times the size of 1rem. This allows you to create more breathing room or conserve space as needed.
 
-<Image src={CompactnessWithVisualExample} alt={"Visual example of compactness"} />
+<Image src={CompactnessWithVisualExample} alt={"Visual example of compactness"} size={ImageSize.large} />
