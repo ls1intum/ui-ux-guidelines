@@ -4,6 +4,7 @@ sidebar_position: 4
 
 import Callout from "../src/components/callout/callout";
 import {CalloutVariant} from "../src/components/callout/callout.types";
+import RedirectIcon from './assets/arrow-up-right-from-square-solid-full.svg';
 
 # Buttons
 
@@ -124,5 +125,5 @@ Your button component could potentially include the following props to ensure co
 
 <Callout variant={CalloutVariant.info}>
     Links that **look like buttons** confuse users and hurt accessibility. Use **one visual language per function**.
-    If you still need a button to redirect, please use the [**redirect icon**](https://fontawesome.com/icons/arrow-up-right-from-square?f=classic&s=solid): <img src="/img/arrow-up-right-from-square-solid-full.svg" alt="Redirect Icon" width="24" height="24" />
+    If you still need a button to redirect, please use the [**redirect icon**](https://fontawesome.com/icons/arrow-up-right-from-square?f=classic&s=solid): <RedirectIcon style={{width: "20px", height: "20px"}} alt={"Redirect Icon"} aria-label={"Redirect Icon"} />
 </Callout>
