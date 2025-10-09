@@ -49,6 +49,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           // Remove this to remove the "edit this page" links.
           editUrl: GUIDELINES_REPOSITORY_URL,
+          exclude: ['**/README.md']
         },
         theme: {
           customCss: './src/css/custom.css',
