@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { useThemeConfig } from '@docusaurus/theme-common';
+import React from "react";
+import PropTypes from "prop-types";
+import { useThemeConfig } from "@docusaurus/theme-common";
 
 /**
  * A reusable, styled image component.
@@ -13,35 +13,33 @@ import { useThemeConfig } from '@docusaurus/theme-common';
  * @returns {React.ReactElement} The rendered image component.
  */
 const Image = ({ src, alt, style, ...rest }) => {
-  const borderColor = '#ccc';
-
   const defaultStyles = {
-        maxWidth: '100%',
-        height: 'auto',
-        border: `1px solid ${borderColor}`,
-        borderRadius: '8px',
-        marginTop: '1rem',
-        display: 'block', // Prevents extra space below the image
-    };
+    maxWidth: "100%",
+    height: "auto",
+    border: "1px solid var(--ifm-color-emphasis-300)",
+    borderRadius: "8px",
+    marginTop: "1rem",
+    display: "block", // Prevents extra space below the image
+  };
 
-    // Custom styles will override default styles if there's a conflict.
-    const combinedStyles = { ...defaultStyles, ...style };
+  // Custom styles will override default styles if there's a conflict.
+  const combinedStyles = { ...defaultStyles, ...style };
 
-    return (
-        <img
-            src={src}
-            alt={alt}
-            style={combinedStyles}
-            aria-label={alt}
-            {...rest}
-        />
-    );
+  return (
+    <img
+      src={src}
+      alt={alt}
+      style={combinedStyles}
+      aria-label={alt}
+      {...rest}
+    />
+  );
 };
 
 Image.propTypes = {
-    src: PropTypes.string.isRequired,
-    alt: PropTypes.string.isRequired,
-    style: PropTypes.object,
+  src: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+  style: PropTypes.object,
 };
 
 export default Image;
