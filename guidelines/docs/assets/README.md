@@ -29,3 +29,12 @@ Note: There is a difference between the imports in `.mdx` files and raw `.md` fi
 
 
 ## raw .md files
+
+While displaying a picture in a raw .md file is quite simple, you cannot style the image properly *(at least I did not find a good way to do so)*.
+Also, most files will most likely be `.mdx` files anyway.
+
+This display option also works for `.mdx` files, but using the `<Image />` component ensures consistency and should be used preferably.
+
+```
+![SEO META in 1 CLICK](./assets/seo-meta-header-example.png)
+```
