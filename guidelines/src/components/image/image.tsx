@@ -19,7 +19,7 @@ const Image = ({
   style,
   ...rest
 }: {
-  src: string;
+  src: string | {};
   alt: string;
   size?: ImageSize;
   style?: object;
@@ -44,7 +44,7 @@ const Image = ({
 
   return (
     <img
-      src={src}
+      src={src as string}
       alt={alt}
       style={combinedStyles}
       aria-label={alt}
