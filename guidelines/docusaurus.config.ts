@@ -5,6 +5,7 @@ import type * as Preset from "@docusaurus/preset-classic";
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 const GUIDELINES_REPOSITORY_URL =
   "https://github.com/ls1intum/ui-ux-guidelines";
+const EDIT_URL = GUIDELINES_REPOSITORY_URL + "/tree/main/guidelines/";
 const PAGE_TITLE = "UI-UX Guidelines @ AET";
 
 const config: Config = {
@@ -50,7 +51,7 @@ const config: Config = {
         docs: {
           sidebarPath: "./sidebars.ts",
           // Remove this to remove the "edit this page" links.
-          editUrl: GUIDELINES_REPOSITORY_URL,
+          editUrl: EDIT_URL,
           exclude: ["**/README.md"],
         },
         theme: {
