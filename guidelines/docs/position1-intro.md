@@ -69,7 +69,7 @@ For more details refer to the [accessibility guidelines](/docs/accessibility).
 
 These systems show how **complex products** remain simple and predictable through reusable design components.
 
-## Recommended Reading
+## Recommended Readings in addition to these guidelines
 
 1. *The Design of Everyday Things* – Don Norman
 2. *About Face: The Essentials of Interaction Design* – Alan Cooper
