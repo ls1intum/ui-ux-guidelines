@@ -28,6 +28,7 @@ They are meant as **mandatory reading** for all project members designing or imp
 
 ### 2. Consistency
 - Use uniform colors, spacing, icons, and component behavior.
+  - See the [color guidelines](/docs/colors)
 - Follow a **design system** (Material, Bootstrap, or your own).
 
 **References:**
