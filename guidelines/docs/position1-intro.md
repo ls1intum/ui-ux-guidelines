@@ -50,11 +50,11 @@ They are meant as **mandatory reading** for all project members designing or imp
 
 ## Layout & Interaction Basics
 
-| Aspect | Good Practice | Example |
-|--------|----------------|----------|
-| **Navigation** | Keep menus short and visible; highlight current location | [GOV.UK Design System: Navigation](https://design-system.service.gov.uk/components/header/) |
-| **Buttons** | Use consistent styles for primary/secondary actions | [Material Design Buttons](https://m3.material.io/components/buttons/overview) |
-| **Responsive Design** | Test across devices and screen sizes | [Google: Responsive Design Basics](https://developers.google.com/web/fundamentals/design-and-ux/responsive) |
+| Aspect                | Good Practice                                            | Example                                                                                                     |
+|-----------------------|----------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| **Navigation**        | Keep menus short and visible; highlight current location | [GOV.UK Design System: Navigation](https://design-system.service.gov.uk/components/header/)                 |
+| **Buttons**           | Use consistent styles for primary/secondary actions      | [Material Design Buttons](https://m3.material.io/components/buttons/overview)                               |
+| **Responsive Design** | Test across devices and screen sizes                     | [Google: Responsive Design Basics](https://developers.google.com/web/fundamentals/design-and-ux/responsive) |
 
 ## Inspiration & Good Examples
 
