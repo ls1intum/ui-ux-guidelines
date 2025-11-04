@@ -25,7 +25,6 @@ They are meant as **mandatory reading** for all project members designing or imp
 
 **References:**
 - [Don't Make Me Think – Steve Krug](https://www.goodreads.com/book/show/18197267-don-t-make-me-think-revisited)
-- [Google's Material Design Principles](https://m3.material.io/foundations/principles/overview)
 
 ### 2. Consistency
 - Use uniform colors, spacing, icons, and component behavior.
@@ -38,9 +37,6 @@ They are meant as **mandatory reading** for all project members designing or imp
 - Every user action should produce visible system feedback (loading, confirmation, error).
 - Use progress indicators and clear status messages.
 
-**Example:**
-- [UX Planet: Feedback in UX Design](https://uxplanet.org/the-importance-of-feedback-in-ui-design-25cc7e0a09d7)
-
 ### 4. Accessibility
 - Ensure usability for people with disabilities (contrast, keyboard navigation, ARIA labels).
 
@@ -52,17 +48,12 @@ They are meant as **mandatory reading** for all project members designing or imp
 - Users should immediately understand how to use an interface.
 - Make clickable elements look clickable.
 
-**References:**
-- [Nielsen Norman Group: Affordances and Signifiers](https://www.nngroup.com/articles/affordances-signifiers/)
-
 ## Layout & Interaction Basics
 
 | Aspect | Good Practice | Example |
 |--------|----------------|----------|
 | **Navigation** | Keep menus short and visible; highlight current location | [GOV.UK Design System: Navigation](https://design-system.service.gov.uk/components/header/) |
-| **Forms** | Group related inputs, show inline validation, avoid long forms | [Baymard Institute: Form Design Best Practices](https://baymard.com/blog/forms) |
 | **Buttons** | Use consistent styles for primary/secondary actions | [Material Design Buttons](https://m3.material.io/components/buttons/overview) |
-| **Error Handling** | Explain what went wrong and how to fix it | [UX Design.cc: Error Message Design](https://uxdesign.cc/design-better-error-messages-9bfb04e9f6d5) |
 | **Responsive Design** | Test across devices and screen sizes | [Google: Responsive Design Basics](https://developers.google.com/web/fundamentals/design-and-ux/responsive) |
 
 ## Inspiration & Good Examples
