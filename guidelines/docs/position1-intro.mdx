@@ -1,0 +1,70 @@
+---
+sidebar_position: 1
+slug: intro
+---
+
+import Callout from "../src/components/callout/callout";
+import {CalloutVariant} from "../src/components/callout/callout.types";
+
+# 💡 Why do we need guidelines?
+
+- 🧭 **Easier Navigation** – Users can quickly find what they need without confusion.
+- 👀 **Instant Recognition** – A consistent design helps users immediately recognize they are on an AET platform.
+- ⚡️ **Improved Efficiency** – Familiar layouts and interactions reduce cognitive load, making tasks faster and more intuitive.
+- 🆗 **Professional & Trustworthy** – A polished, cohesive UI reinforces credibility and trust in our applications.
+- 📱 **Seamless Multi-App Experience** – Users moving between AET apps experience a unified interface, reducing friction.
+
+By following these guidelines, we create a **seamless and enjoyable experience** for all users. 🚀
+
+<Callout variant={CalloutVariant.warning}>
+    These guidelines introduce the **core principles of good user interface (UI)** and **user experience (UX)** design for web applications.
+    They are meant as **mandatory reading** for all project members designing or implementing user-facing features.
+</Callout>
+
+## 🎯 Core Principles
+
+### 1. Simplicity
+- Focus on clarity and purpose — every element must justify its existence.
+- Avoid clutter, technical jargon, and redundant actions.
+
+**📖 References:**
+- [Don't Make Me Think (Summary) – Steve Krug](https://readingraphics.com/book-summary-dont-make-me-think/)
+
+### 2. Consistency
+- Use uniform colors, spacing, icons, and component behavior.
+  - See the [spacing guidelines](/docs/spacing)
+  - See the [color guidelines](/docs/colors)
+- Follow a **design system** ([Material](https://mui.com/material-ui/), [Bootstrap](https://getbootstrap.com/), or your own).
+
+**📖 References:**
+- [Nielsen Norman Group: Consistency and Standards](https://www.nngroup.com/articles/consistency-and-standards/)
+
+### 3. Feedback
+- Every user action should produce visible system feedback (loading, confirmation, error).
+- Use progress indicators and clear status messages.
+
+### 4. Accessibility
+- Ensure usability for people with disabilities (contrast, keyboard navigation, ARIA labels).
+- For more details refer to the [accessibility guidelines](/docs/accessibility).
+
+### 5. Learnability & Affordance
+- Users should immediately understand how to use an interface.
+- Make clickable elements look clickable.
+
+## 📐 Layout & Interaction Basics
+
+| Aspect                | Good Practice                                                  | Example                                                                                                                                              |
+|-----------------------|----------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Navigation**        | Keep menus short and visible; highlight current location       |                                                                                                                                                      |
+| **Forms**             | Group related inputs, show inline validation, avoid long forms | [Baymard Institute: Form Design Best Practices](https://baymard.com/learn/form-design)                                                               |
+| **Buttons**           | Use consistent styles for primary/secondary actions            | [Button guidelines](/docs/buttons)                                                                                                                   |
+| **Error Handling**    | Explain what went wrong and how to fix it                      | [UX Design.cc: Error Message Design](https://medium.com/design-bootcamp/create-a-better-user-experience-by-writing-good-error-messages-d9188e740816) |
+| **Responsive Design** | Test across devices and screen sizes                           | [Google: Responsive Design Basics](https://developers.google.com/web/fundamentals/design-and-ux/responsive)                                          |
+
+
+## 📖 Recommended Readings in addition to these guidelines
+
+1. [Practical UI Preview](https://www.practical-ui.com/practical-ui-preview.pdf)
+2. [Branded Interactions](https://typografie.de/produkt/branded-interactions/)
+3. [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/)
+4. [Practical UI Full Book (Paywall)](https://www.practical-ui.com/)
