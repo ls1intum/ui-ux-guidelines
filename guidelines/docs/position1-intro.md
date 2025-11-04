@@ -38,15 +38,16 @@ They are meant as **mandatory reading** for all project members designing or imp
 - Use progress indicators and clear status messages.
 
 ### 4. Accessibility
-- Ensure usability for people with disabilities (contrast, keyboard navigation, ARIA labels).
+Ensure usability for people with disabilities (contrast, keyboard navigation, ARIA labels).
 
-**Resources:**
-- [W3C Web Accessibility Initiative (WAI)](https://www.w3.org/WAI/standards-guidelines/wcag/)
-- [WebAIM Color Contrast Checker](https://webaim.org/resources/contrastchecker/)
+For more details refer to the [accessibility guidelines](/docs/accessibility).
 
 ### 5. Learnability & Affordance
 - Users should immediately understand how to use an interface.
 - Make clickable elements look clickable.
+
+  **References:**
+- [Nielsen Norman Group](https://www.nngroup.com/articles/)
 
 ## Layout & Interaction Basics
 
