@@ -24,7 +24,7 @@ They are meant as **mandatory reading** for all project members designing or imp
 - Avoid clutter, technical jargon, and redundant actions.
 
 **References:**
-- [Don't Make Me Think – Steve Krug](https://www.goodreads.com/book/show/18197267-don-t-make-me-think-revisited)
+- [Don't Make Me Think (Summary) – Steve Krug](https://readingraphics.com/book-summary-dont-make-me-think/)
 
 ### 2. Consistency
 - Use uniform colors, spacing, icons, and component behavior.
@@ -70,7 +70,6 @@ These systems show how **complex products** remain simple and predictable throug
 ## Recommended Reading
 
 1. *The Design of Everyday Things* – Don Norman
-2. *Don't Make Me Think (Revisited)* – Steve Krug
-3. *About Face: The Essentials of Interaction Design* – Alan Cooper
-4. *Lean UX: Applying Lean Principles to Improve User Experience* – Jeff Gothelf
-5. *100 Things Every Designer Needs to Know About People* – Susan Weinschenk
+2. *About Face: The Essentials of Interaction Design* – Alan Cooper
+3. *Lean UX: Applying Lean Principles to Improve User Experience* – Jeff Gothelf
+4. *100 Things Every Designer Needs to Know About People* – Susan Weinschenk
