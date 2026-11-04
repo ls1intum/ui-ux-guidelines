@@ -5,6 +5,22 @@ import {
   CalloutVariant,
 } from "./callout.types";
 
+const visuallyHidden: React.CSSProperties = {
+  position: "absolute",
+  width: "1px",
+  height: "1px",
+  padding: 0,
+  margin: "-1px",
+  overflow: "hidden",
+  clip: "rect(0, 0, 0, 0)",
+  whiteSpace: "nowrap",
+  border: 0,
+};
+
+/**
+ * A highlighted note in the docs. It is static content, so it uses role="note"
+ * instead of role="alert" (which makes screen readers interrupt the user).
+ */
 const Callout: React.FC<CalloutProps> = ({
   children,
   variant = CalloutVariant.success,
@@ -19,31 +35,24 @@ const Callout: React.FC<CalloutProps> = ({
     display: "flex",
     alignItems: "center",
     gap: "12px",
+    marginBottom: "var(--ifm-leading)",
   };
 
   return (
-    <div style={bannerStyle} role="alert">
-      <span style={{ fontSize: "1.2em", alignSelf: "center" }}>
+    <div style={bannerStyle} role="note">
+      <span style={{ fontSize: "1.2em", alignSelf: "center" }} aria-hidden="true">
         {currentStyle.icon}
       </span>
-      <span
-        style={{
-          display: "flex",
-          alignItems: "center",
-          height: "100%",
-          flex: 1,
-          margin: 0,
-        }}
-      >
-        <div style={{ width: "100%" }}>
-          {React.Children.map(children, (child) =>
-            React.isValidElement(child) && child.type === "p"
-              ? // @ts-ignore the style property is present on p elements in which the markdown appears to be wrapped
-                React.cloneElement(child, { style: { margin: 0 } })
-              : child,
-          )}
-        </div>
-      </span>
+      <div style={{ flex: 1, margin: 0 }}>
+        <span style={visuallyHidden}>{currentStyle.label}: </span>
+        {React.Children.map(children, (child) =>
+          React.isValidElement<{ style?: React.CSSProperties }>(child) &&
+          child.type === "p"
+            ? // the markdown content is wrapped in <p> elements, remove their margin
+              React.cloneElement(child, { style: { margin: 0 } })
+            : child,
+        )}
+      </div>
     </div>
   );
 };

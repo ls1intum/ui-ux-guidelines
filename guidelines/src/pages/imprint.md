@@ -1,5 +1,6 @@
 ---
 title: Imprint
+description: Legal notice of the UI-UX Guidelines @ AET website of the Technical University of Munich
 ---
 
 # Imprint
@@ -7,18 +8,23 @@ title: Imprint
 ## Publisher
 Technical University of Munich
 
-Postal address: Arcisstrasse 21, 80333 Munich
+Postal address: Arcisstraße 21, 80333 Munich, Germany
 
-Telephone: [+49-(0)89-289-01](tel:+498928901)
+Telephone: [+49 89 289 01](tel:+498928901)
 
-Fax: +49-(0)89-289-22000
+Fax: +49 89 289 22000
 
 Email: [poststelle@tum.de](mailto:poststelle@tum.de)
 
 ---
 
-## Authorized to represent
-The Technical University of Munich is legally represented by the President Prof. Dr. Thomas F. Hofmann.
+## Legal status and representation
+The Technical University of Munich is a corporation under public law and a state institution (Art 4 (1) of the Bavarian Higher Education Innovation Act - BayHIG). Its legal representative is Prof. Dr. Thomas F. Hofmann.
+
+---
+
+## Supervisory authority
+Bavarian State Ministry of Science and the Arts
 
 ---
 
@@ -34,39 +40,44 @@ Boltzmannstrasse 3
 
 85748 Garching
 
+Germany
+
 ---
 
 ## Terms of use
-Texts, images, graphics as well as the design of these Internet pages may be subject to copyright. 
-The following are not protected by copyright according to §5 of copyright law (UrhG).
+Texts, images, graphics, as well as the design of these internet pages, may be subject to copyright.
+The following works are not protected by copyright in accordance with § 5 of the German Copyright Act (UrhG):
 
-Laws, ordinances, official decrees and announcements as well as decisions and officially written guidelines for decisions and other official works that have been published in the official interest for general knowledge, with the restriction that the provisions on prohibition of modification and indication of source in Section 62 (1) to (3) and Section 63 (1) and (2) UrhG apply accordingly.
+- acts, statutory instruments, official decrees and official notices, as well as decisions and official head notes of decisions;
+- other official texts published in the official interest for general information purposes, subject to the proviso that the provisions concerning the prohibition of alteration and the indication of sources in § 62(1) to (3) and § 63(1) and (2) apply accordingly.
 
-As a private individual, you may use copyrighted material for private and other personal use within the scope of Section 53 UrhG. 
-Any duplication or use of objects such as images, diagrams, sounds or texts in other electronic or printed publications is not permitted without our agreement. 
-This consent will be granted upon request by the person responsible for the content. The reprinting and evaluation of press releases and speeches are generally permitted with reference to the source. 
-Furthermore, texts, images, graphics and other files may be subject in whole or in part to the copyright of third parties. 
-The persons responsible for the content will also provide more detailed information on the existence of possible third-party rights.
+Private persons may use copyrighted material for private and other personal use in accordance with § 53 of the German Copyright Act (UrhG).
+Reproduction or use of copyrighted material from these pages, in whole or in part, in other electronic or print media and their publication is not permitted without explicit consent.
+Upon request, consent will be given by the entity responsible for the content.
+Reprint and use of press releases and speeches is, as a rule, permitted provided their source is acknowledged.
+
+Further, texts, images, graphics, and other files may, in whole or in part, be subject to third-party copyright.
+The entity responsible for the content will provide more detailed information on third-party rights, if any.
 
 ---
 
 ## Liability disclaimer
-The information provided on this website has been collected and verified to the best of our knowledge and belief. 
-However, there will be no warranty that the information provided is up-to-date, correct, complete, and available. 
+The information provided on this website has been collected and verified to the best of our knowledge and belief.
+However, there will be no warranty that the information provided is up to date, correct, complete, and available.
 There is no contractual relationship with users of this website.
 
-We accept no liability for any loss or damage caused by using this website. 
-The exclusion of liability does not apply where the provisions of the German Civil Code (BGB) on liability in case of breach of official duty are applicable (§ 839 of the BGB). 
+We accept no liability for any loss or damage caused by using this website.
+The exclusion of liability does not apply where the provisions of the German Civil Code (BGB) on liability in case of breach of official duty are applicable (§ 839 of the BGB).
 We accept no liability for any loss or damage caused by malware when accessing or downloading data or the installation or use of software from this website.
 
-Where necessary in individual cases: the exclusion of liability does not apply to information governed by the Directive 2006/123/EC of the European Parliament and of the Council. 
+Where necessary in individual cases: the exclusion of liability does not apply to information governed by the Directive 2006/123/EC of the European Parliament and of the Council.
 This information is guaranteed to be accurate and up to date.
 
 ---
 
 ## Links
-Our own content is to be distinguished from cross-references (“links”) to websites of other providers. 
-These links only provide access for using third-party content in accordance with § 8 of the German telemedia act (TMG). 
-Prior to providing links to other websites, we review third-party content for potential civil or criminal liability. 
-However, a continuous review of third-party content for changes is not possible, and therefore we cannot accept any responsibility. 
+Our own content is to be distinguished from cross-references (“links”) to websites of other providers.
+These links only provide access for using third-party content in accordance with § 7 of the German digital services act (DDG).
+Prior to providing links to other websites, we review third-party content for potential civil or criminal liability.
+However, a continuous review of third-party content for changes is not possible and therefore we cannot accept any responsibility.
 For illegal, incorrect, or incomplete content, including any damage arising from the use or non-use of third-party information, liability rests solely with the provider of the website.

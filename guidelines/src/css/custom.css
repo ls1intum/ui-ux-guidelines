@@ -4,7 +4,7 @@
  * work well for content-centric websites.
  */
 
-/* Colors taken from the TUM color guidelines https://portal.mytum.de/corporatedesign/index_html/vorlagen/index_farben */
+/* Colors taken from the TUM corporate design color palette (TUM blue #0065BD and its secondary and accent colors) */
 :root {
     --ifm-color-primary: var(--tum-color-blue);
     --ifm-color-primary-dark: var(--tum-color-blue-dark);
@@ -44,4 +44,16 @@
     --ifm-color-primary-lighter: var(--tum-accent-orange);
     --ifm-color-primary-lightest: var(--tum-accent-green);
     --docusaurus-highlighted-code-line-bg: var(--tum-gray-80);
+}
+
+/* Underline links in text, so that they are not distinguished by color alone (WCAG 1.4.1) */
+.markdown a:not(.button):not(.hash-link),
+.plugin-pages article a:not(.button):not(.hash-link) {
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+
+/* Let long inline code (e.g., token names) wrap on small screens instead of scrolling the page horizontally (WCAG 1.4.10) */
+.markdown :not(pre) > code {
+    overflow-wrap: anywhere;
 }
