@@ -1,0 +1,23 @@
+# Configuration for the scheduled external link check (.github/workflows/check-links.yml).
+# Internal links and anchors are checked by `npm run build` (onBrokenLinks / onBrokenAnchors).
+
+# Only check external links
+scheme = ["https", "http"]
+
+max_concurrency = 8
+max_retries = 3
+timeout = 30
+
+# 429: rate limited, not broken
+accept = ["200..=299", "429"]
+
+exclude = [
+  # The site root of the GitHub Pages organization, only used as `url` in docusaurus.config.ts
+  '^https://ls1intum\.github\.io/?$',
+  # Sites that block automated requests (403/999) although the pages exist
+  '^https://www\.figma\.com/community/',
+  '^https://www\.npmjs\.com/',
+  '^https://www\.linkedin\.com/',
+  '^https://www\.instagram\.com/',
+  '^https://typografie\.de/',
+]
