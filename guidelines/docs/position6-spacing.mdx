@@ -15,7 +15,7 @@ import CompactnessWithVisualExample from './assets/compactness-with-visual-examp
 # Spacing
 
 This guide outlines spacing guidelines to be applied across all products.
-Even though there are no hard rules when it to spacing, there are still best practices that are widely recognized by the UI/UX community and have proven to ensure a sense of consistency and ease of readability for the human eye.
+Even though there are no hard rules when it comes to spacing, there are still best practices that are widely recognized by the UI/UX community and have proven to ensure a sense of consistency and ease of readability for the human eye.
 It is recommended to follow these best practices and only deviate from them when there is a strong reason to do so.
 
 ## Principle of Proximity
@@ -38,9 +38,14 @@ You should use this natural intuition to guide users through the interface by gr
 To define appropriate spacing between elements, it’s common and recommended to use the rem unit. One rem equals the font size defined on the root HTML element, which most browsers set to `16px` by default.
 A typical practice is to choose spacing values by multiplying your base unit X (usually set as `1rem`) by whole or half-unit increments. These spacing options can then be used to implement the principle of proximity.
 
+Define the spacing scale once as tokens (CSS custom properties) and use only these values. [TUM AET UI](/docs/component-library) uses a step of `--tumaet-ui-spacing` (`0.25rem`) and multiples of it, for example `calc(var(--tumaet-ui-spacing) * 4)` for `1rem`.
+In flexbox and grid layouts, prefer `gap` over margins on the children, so that spacing lives in one place.
+
 <Image src={ProximityWithXFactors} alt={"Visual examples of proximity with x factor"} />
 
 ## Controlling Compactness
 To control how compact or spacious your design feels, the base unit can be fine-tuned to be between about `0.75` and `1.25` times the size of `1rem`. This allows you to create more breathing room or conserve space as needed.
+
+When you make a layout more compact, keep interactive elements usable: clickable targets need at least **24 × 24 CSS px** or enough space around them (see [target size](/docs/buttons#target-size)).
 
 <Image src={CompactnessWithVisualExample} alt={"Visual example of compactness"} size={ImageSize.large} />

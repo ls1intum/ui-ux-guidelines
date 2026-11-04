@@ -13,6 +13,7 @@ import Image from "../src/components/image/image";
 * Headings should follow a **strict hierarchical order**:
   * Use `<h2>` directly under `<h1>`, `<h3>` under `<h2>`, and so on.
   * **Avoid skipping levels** (e.g., do not go from `<h2>` to `<h4>`).
+* Sectioning elements such as `<section>` or `<article>` do **not** change the level of a heading. Browsers and screen readers never implemented the old HTML “outline algorithm”, and it was removed from the HTML standard in 2022, so an `<h1>` inside a `<section>` is still an `<h1>`.
 * Do **not** use heading tags for styling purposes only – use them semantically.
 * Avoid visual headings (e.g., sidebar labels) using heading tags – use `<span>` or styled components instead.
 * To change the visual formatting of a heading, use CSS rather than using a heading level that doesn't fit the hierarchy. Don't make up your own formatting for headings.
@@ -21,7 +22,8 @@ import Image from "../src/components/image/image";
 
 ## Design & Styling
 * Define a consistent **visual appearance** for each heading level (font size, weight, spacing).
-* Use design tokens or CSS variables to make styles reusable and themable (e.g., `--heading-h2-font-size`). => see [Color Guidelines](/docs/colors)
+* Use design tokens or CSS variables to make styles reusable and themable (e.g., `--heading-h2-font-size`). See the [design tokens](/docs/colors#-design-tokens) in the color guidelines.
+* Use `rem` for font sizes, so that headings scale with the user’s font size setting.
 * Do not use headings to “fake” visual hierarchy – keep semantic structure and styling separate.
 
 ---
@@ -49,9 +51,11 @@ Headings should be **clear, meaningful, and descriptive** – vague headings har
 ## Additional Resources
 
 Sources that inspired the heading guidelines:
-* [https://developers.google.com/style/headings](https://developers.google.com/style/headings)
+* [Google developer documentation style guide: Headings and titles](https://developers.google.com/style/headings)
+* WCAG 2.2: [1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) and [2.4.6 Headings and Labels](https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html)
 
 Useful tools:
-* [SEO META in 1 CLICK](https://chromewebstore.google.com/detail/seo-meta-in-1-click/bjogjfinolnhfhkbipphpdlldadpnmhc?hl=de&pli=1)<br></br>
+* [WAVE](https://wave.webaim.org/): the *Structure* panel shows the heading outline of the current page.
+* [SEO META in 1 CLICK](https://chromewebstore.google.com/detail/seo-meta-in-1-click/bjogjfinolnhfhkbipphpdlldadpnmhc)<br></br>
   Offers the section *Headers*, which can help to analyze the structure of the current page<br></br>
   <Image src={SeoMetaHeaderExample} alt={"Example of a good heading structure shown in the SEO META in 1 CLICK tool"} />

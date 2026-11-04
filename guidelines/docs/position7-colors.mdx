@@ -8,14 +8,14 @@ import {CalloutVariant} from "../src/components/callout/callout.types";
 
 # Colors
 
-This is a comprehensive, science-based, and **developer-proof UI Color Guideline** that follows modern design and accessibility standards such as **WCAG 2.1, Material Design, Design Tokens, and inclusive UX principles.**
+This is a comprehensive, science-based, and **developer-proof UI Color Guideline** that follows modern design and accessibility standards such as **WCAG 2.2, Material Design, Design Tokens, and inclusive UX principles.**
 
 ---
 
 ## ✅ TL;DR
-- Use only defined color tokens (ask the designer if unsure)
+- Use only defined color tokens (ask the designer if unsure). In apps that use [TUM AET UI](/docs/component-library), these are the `--tumaet-ui-*` tokens
 - Always apply hover, active, focus, and disabled states
-- Check color contrast using accessibility tools
+- Check color contrast using accessibility tools, in **light and dark mode**
 - Use semantic tokens for logic (e.g., error, success) not brand color names
 - Don’t create new shades — use the ones from the system
 - Document new uses if you have to extend the system
@@ -110,21 +110,23 @@ Define **state variants** for each interactive color:
 | Base     | Default appearance            | Default button color             |
 | Hover    | On mouse hover                | Slightly darker/lighter shade    |
 | Active   | On press/click                | Stronger contrast for click      |
-| Disabled | On keyboard focus             | Muted, low contrast              |
-| Focus    | Inactive or unavailable state | Add visible outline (focus ring) |
+| Disabled | Inactive or unavailable state | Muted, low contrast              |
+| Focus    | On keyboard focus             | Add visible outline (focus ring) |
 
 Use 4–8 **shades** per color for UI flexibility (e.g., primary-100 to primary-900).
 
 ### Light & Dark Mode
 
 Define at least two **themes**: Light and Dark. Use the same **semantic token names**, different values.
+Follow the operating system setting ([`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-color-scheme)) by default and let users override it with the dark mode toggle in the [header](/docs/general-conventions#header-design).
 
 Example Values:
-| Token   | Light Value | Dark Value |
-|---------|-------------|------------|
-| Primary | #000000     | #FFFFFF    |
-| Surface | #FFFFFF     | #121212    |
-| Error   | #D32F2F     | #EF9A9A    |
+
+| Token        | Light Value | Dark Value |
+|--------------|-------------|------------|
+| Text primary | #000000     | #FFFFFF    |
+| Surface      | #FFFFFF     | #121212    |
+| Error        | #D32F2F     | #EF9A9A    |
 
 <Callout variant={CalloutVariant.danger}>
     Don’t invert colors blindly — adjust saturation and contrast to maintain **legibility and mood**.
@@ -172,6 +174,23 @@ The token system is typically divided into **three layers**:
 - Use **semantic names** (`text.primary`, `bg.surface`) instead of visual ones (`blue.500`) in your UI.
 - Keep **component tokens optional** – only add them when you need overrides or granular control.
 - Ensure all tokens are documented in one **central source of truth** (e.g., Tokens Studio or Style Dictionary).
+- Store that source of truth in the [**Design Tokens Format**](https://www.designtokens.org/tr/2025.10/format/) of the W3C Design Tokens Community Group (DTCG), which has had a first stable version (2025.10) since October 2025, so that design tools and token pipelines can exchange tokens. Tool support for version 2025.10 is still being completed (Style Dictionary, for example, does not support all of it yet).
+
+```json title="tokens/color.tokens.json"
+{
+  "color": {
+    "blue": {
+      "700": {
+        "$type": "color",
+        "$value": { "colorSpace": "srgb", "components": [0, 0.396, 0.741], "hex": "#0065bd" }
+      }
+    },
+    "brand": {
+      "primary": { "$type": "color", "$value": "{color.blue.700}" }
+    }
+  }
+}
+```
 
 ---
 
@@ -182,16 +201,17 @@ Tokens should be created and maintained in a **centralized, version-controlled s
 
 ### Recommended Tools & Formats
 
-| Tool / Format                | Use Case                                                                |
-|------------------------------|-------------------------------------------------------------------------|
-| Tokens Studio (Figma Plugin) | Define and sync design tokens visually in Figma                         |
-| Style Dictionary             | Export tokens to multiple platforms (CSS, SCSS, JS, Android, iOS, etc.) |
-| Tailwind CSS Config          | Define colors as part of Tailwind’s theming system                      |
-| Custom JSON/SCSS/TS Files    | For custom design systems with manual control                           |
-| CSS Variables (:root)        | Native browser token usage via `--color-token-name`                     |
+| Tool / Format                                                                                        | Use Case                                                                                         |
+|------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
+| [Figma Variables](https://help.figma.com/hc/en-us/articles/15339657135383-Guide-to-variables-in-Figma) | Native color and number tokens with modes (e.g., light/dark) in Figma                            |
+| [Tokens Studio for Figma](https://tokens.studio/)                                                    | Define and sync design tokens visually in Figma, also in the DTCG format                         |
+| [Style Dictionary](https://styledictionary.com/)                                                     | Export tokens to multiple platforms (CSS, SCSS, JS, Android, iOS, etc.), reads the DTCG format    |
+| [Tailwind CSS `@theme`](https://tailwindcss.com/docs/theme)                                          | Since Tailwind v4, theme colors are defined in CSS and become CSS custom properties              |
+| DTCG JSON (`*.tokens.json`)                                                                          | Tool-independent source of truth for automated exports                                           |
+| CSS custom properties (`:root`)                                                                      | Native browser token usage via `--color-token-name`                                              |
 
 ### Example Locations for Token Definitions
-- `tokens/color-tokens.json` → Source of truth (for automated exports)
+- `tokens/color.tokens.json` → Source of truth in the DTCG format (for automated exports)
 - `styles/_tokens.scss` → Imported into SCSS projects
 - `theme/colors.ts` → For JS/TS projects using CSS-in-JS or Tailwind
 - `global.css` or `theme.css` → For CSS variables (`--color-text-primary`)
@@ -202,25 +222,52 @@ If you’re using Figma, you can:
 2. Sync them with your design system libraries.
 3. Export them to JSON for development via Style Dictionary or GitHub Actions.
 
+Figma Variables are an alternative to Tokens Studio for colors and numbers. Whatever you choose, keep the token **names** the same in design and code.
+
 <Callout variant={CalloutVariant.success}>
     Always document who is responsible for updating tokens (e.g., brand team, design ops) and how they are versioned.
 </Callout>
 
+### Using Tokens in CSS
+
+In the browser, tokens are **CSS custom properties**. Modern CSS covers most theming needs without a preprocessor:
+
+- Switch themes by changing token values, for example under `[data-theme='dark']` (this is how [TUM AET UI](/docs/component-library#themes-and-design-tokens) does it) and set [`color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/color-scheme) accordingly, so that native controls and scrollbars match.
+- [`light-dark()`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/light-dark) defines the light and the dark value in one declaration. It follows the active `color-scheme` and is supported by all current browsers since 2024.
+- [`color-mix()`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/color-mix) derives state colors (hover, active, subtle backgrounds) from one base token instead of adding more hard-coded shades. Mixing `in oklch` gives more even lightness steps than mixing in sRGB.
+
+```css
+:root {
+  --app-highlight: light-dark(#e3f0fb, #0b3668);
+  --app-highlight-hover: color-mix(in oklch, var(--app-highlight), light-dark(black, white) 10%);
+}
+```
+
+<Callout variant={CalloutVariant.info}>
+    Derived colors are still colors: check their contrast like any other token, in both themes.
+</Callout>
+
 ---
 
-## ♿️ Accessibility & Contrast
+## ♿️ Accessibility & Contrast {/* #accessibility-contrast */}
 
-Follow at least WCAG 2.1 Guidelines
+Follow at least the WCAG 2.2 guidelines, Level AA.
 
-| Content Type                          | Min Contrast Ratio |
-|---------------------------------------|--------------------|
-| Normal text                           | 4.5:1              |
-| Large text (18pt bold or 24pt normal) | 3:1                |
-| UI components (borders, icons)        | 3:1                |
+| Content Type                                                       | Min Contrast Ratio |
+|--------------------------------------------------------------------|--------------------|
+| Normal text                                                        | 4.5:1              |
+| Large text (at least 24px / 18pt regular, or 18.5px / 14pt bold)   | 3:1                |
+| UI components and graphics (input borders, icons, focus indicator) | 3:1                |
+
+Disabled controls are exempt from the contrast requirements, but should still be readable.
 
 Use tools like:
 - [🧪 WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)
 - [🔍 Stark Plugin (Figma/Sketch)](https://www.getstark.co/)
+
+<Callout variant={CalloutVariant.warning}>
+    You may come across **APCA**, a contrast algorithm that was once proposed for WCAG 3. It is not part of any current standard, and the current WCAG 3 draft states that its contrast algorithm is yet to be determined. Use the WCAG 2.2 ratios above to decide whether a color pair passes.
+</Callout>
 
 <Callout variant={CalloutVariant.success}>
     Don’t rely on color alone. Always use icons, text labels, or shape indicators too.
@@ -240,4 +287,4 @@ Use tools like:
 - Name tokens **semantically**, not visually (text.error > red-500).
 - Use **consistent spacing** between shades (e.g., 10–20% difference in lightness).
 - Ensure **interactive elements have visible focus indicators**.
-- Document everything in a centralized **Design System** or **Tokens file** (like Figma Tokens, Style Dictionary, or Tokens Studio).
+- Document everything in a centralized **Design System** or **Tokens file** (like Style Dictionary or Tokens Studio).

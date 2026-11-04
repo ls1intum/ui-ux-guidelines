@@ -13,6 +13,10 @@ These guidelines define how buttons should look, behave, and be implemented acro
 The goal is to ensure a **consistent, accessible, and intuitive** user experience while maintaining **flexibility and
 scalability**.
 
+<Callout variant={CalloutVariant.info}>
+    In applications that use [TUM AET UI](/docs/component-library), use its Button component: it implements these variants, states, and sizes.
+</Callout>
+
 ---
 
 ## ✅ TL;DR
@@ -21,7 +25,8 @@ scalability**.
 - Only **one primary button per page**
 - Destructive buttons always open a confirmation
 - Use spacing and corner radius consistently
-- Icon buttons must be circular and have labels
+- Icon buttons must be circular and have an accessible name (`aria-label`) and a tooltip
+- Targets are at least **24 × 24 px**, better 44 × 44 px on touch devices
 - Don’t use links for actions or buttons for navigation
 - Avoid visual overload – use menus for secondary actions
 
@@ -40,9 +45,9 @@ following variants are needed in all applications.
 |:---------------------|:---------------------------------------------------|:-----------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Primary              | Main action on a page (e.g., “Save”, “Submit”)     | Brand color background, white text       | - One per page or screen<br></br>- High contrast and visibility<br></br>- Never used for destructive actions                                                                                                                                                                                                                                                                                                    |
 | Secondary            | Secondary action (e.g., “Cancel”, “Back”)          | Neutral background or border             | - Visual fallback to primary<br></br>- Useful for “Back” or “Cancel”<br></br>- Should not compete visually with primary                                                                                                                                                                                                                                                                                         |
-| Destructive / Danger | Dangerous or irreversible actions (e.g., “Delete”) | Red background or border                 | - Always trigger a **confirmation overlay or modal** before the action is executed<br></br>- Be **clearly labeled** (“Delete”, not “Confirm”), not “OK”<br></br>- Must never be the primary button unless it’s the only available action                                                                                                                                                                        |
+| Destructive / Danger | Dangerous or irreversible actions (e.g., “Delete”) | Red background or border                 | - Always trigger a **confirmation overlay or modal** before the action is executed<br></br>- Be **clearly labeled** (“Delete”, not “Confirm” or “OK”)<br></br>- Must never be the primary button unless it’s the only available action                                                                                                                                                                        |
 | Success              | Successful Actions (e.g., "Confirm")               | Green background or border               | - Signals that an action will **positively confirm or resolve** something (e.g., “Mark as Done”)<br></br>- Used after success feedback (e.g., “Continue” after a successful form)                                                                                                                                                                                                                               |
-| Disabled             | Non-interactive, inactive state of any variant     | Muted text, subdued background or border | - Be visually muted (e.g., gray background, 50–70% opacity)<br></br>- Tooltip or hint text should explain why the button is disabled<br></br>- Use `aria-disabled="true"` or `disabled` attribute<br></br>- Have no hover/focus/active interaction<br></br>- Not be clickable or keyboard-focusable<br></br>- **Never hide disabled buttons** — they should show users which actions are currently unavailable. |
+| Disabled             | Non-interactive, inactive state of any variant     | Muted text, subdued background or border | - Be visually muted (e.g., gray background, 50–70% opacity)<br></br>- Explain why the button is disabled, ideally with visible hint text<br></br>- Use the `disabled` attribute: the button is then neither clickable nor keyboard-focusable<br></br>- If users must be able to focus it (e.g., to read a tooltip with the reason), use `aria-disabled="true"` instead and ignore clicks in the handler<br></br>- Have no hover/active interaction<br></br>- **Never hide disabled buttons** — they should show users which actions are currently unavailable. |
 
 <details>
 <summary>Additional Button Variants</summary>
@@ -71,7 +76,7 @@ These buttons are often only used in edge cases. This list is not complete. You 
 | Default  | Use the token for the current variant                  |
 | Hover    | Slightly darker/lighter than base                      |
 | Active   | Higher contrast or inset shadow                        |
-| Focus    | Always show a visible focus ring (e.g., 1-2px outline) |
+| Focus    | Always show a visible focus ring for keyboard users (`:focus-visible`), e.g., a 2px outline with at least 3:1 contrast to the surrounding colors |
 | Disabled | Muted background, cursor not-allowed, no interaction   |
 
 ---
@@ -94,16 +99,28 @@ To maintain clarity:
 
 ---
 
+## 📏 Size & Target Area {/* #target-size */}
+
+| Rule                       | Recommendation                                                                                                       |
+|----------------------------|----------------------------------------------------------------------------------------------------------------------|
+| Minimum target size        | **24 × 24 CSS px** for every clickable area (WCAG 2.2, 2.5.8, Level AA), including icon buttons                    |
+| Smaller targets            | Only if a 24 px circle centered on each small target overlaps neither another target nor the circle of another small target, so leave enough space between them |
+| Touch / primary actions    | Prefer **44 × 44 CSS px** (WCAG 2.5.5, Level AAA), especially on mobile                                             |
+| Visual vs. clickable size  | The clickable area may be larger than the visible button (e.g., padding around an icon), but never smaller          |
+
+---
+
 ## ⚙️ Possible Button Properties
 
 Your button component could potentially include the following props to ensure complete flexibility:
 
 | Prop         | Type                                                    | Description                                      |
 |--------------|---------------------------------------------------------|--------------------------------------------------|
-| variant      | string/enum (filled, outlined)                          | Defines the button color                         |
+| variant      | string/enum (filled, outlined, text)                    | Defines the button style                         |
 | severity     | string/enum (primary, secondary, tertiary, destructive) | Defines the button color                         |
 | size         | string (sm, md, lg)                                     | Controls padding and font size                   |
 | label        | string                                                  | Button label/text                                |
+| type         | button \| submit \| reset                               | Native button type; default to `button` so that buttons inside forms don’t submit them by accident |
 | icon         | JSX/Icon component                                      | Optional icon                                    |
 | iconPosition | start \| end                                            | Icon placement                                   |
 | disabled     | boolean                                                 | Disables the button                              |
@@ -126,5 +143,5 @@ Your button component could potentially include the following props to ensure co
 
 <Callout variant={CalloutVariant.info}>
     Links that **look like buttons** confuse users and hurt accessibility. Use **one visual language per function**.
-    If you still need a button to redirect, please use the [**redirect icon**](https://fontawesome.com/icons/arrow-up-right-from-square?f=classic&s=solid): <RedirectIcon style={{width: "20px", height: "20px"}} alt={"Redirect Icon"} aria-label={"Redirect Icon"} />
+    If you still need a button to redirect, please use the [**redirect icon**](https://fontawesome.com/icons/arrow-up-right-from-square?f=classic&s=solid): <RedirectIcon style={{width: "20px", height: "20px", verticalAlign: "middle"}} role="img" aria-label="Redirect icon" />
 </Callout>

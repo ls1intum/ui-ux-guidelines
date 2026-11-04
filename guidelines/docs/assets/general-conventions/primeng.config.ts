@@ -1,7 +1,7 @@
 //@ts-ignore you will need to install this dependency
-import { definePreset } from '@primeng/themes';
+import { definePreset } from '@primeuix/themes';
 //@ts-ignore you will need to install this dependency
-import Aura from '@primeng/themes/aura';
+import Aura from '@primeuix/themes/aura';
 
 export default {
   theme: {

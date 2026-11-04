@@ -21,38 +21,41 @@ Use the **POUR** framework from WCAG:
 | **Principle**      | **Description**                                                                                                                                                                                 |
 |:-------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Perceivable**    | Users must be able to perceive the information (e.g., alt text, color contrast, captions)                                                                                                       |
-| **Operable**       | Users must be able to operate the interface at their own pace, without being limited by time constraints (e.g., no automatic timeouts, disappearing content, or time-limited form submissions). |
+| **Operable**       | Users must be able to operate the interface with the input method they use and at their own pace (e.g., keyboard access, large enough targets, no time limits, no flashing content)              |
 | **Understandable** | Content must be clear and predictable (e.g., consistent navigation, error messages)                                                                                                             |
 | **Robust**         | Must work with a wide range of assistive technologies (e.g., screen readers, ARIA support)                                                                                                      |
 
 <Callout variant={CalloutVariant.success}>
-    If your app follows POUR, it’s already around 90% accessible.
+    Use POUR as a quick check when you design or review a feature: can everyone **perceive**, **operate**, and **understand** it, and does it work **robustly** with assistive technologies?
 </Callout>
 
 ---
 
 ## 📏 Key Rules from WCAG
 
-The **WCAG 2.2** defines accessibility rules under the four POUR core principles. Below are the **most essential rules** every team should apply:
+The **WCAG 2.2** defines accessibility rules under the four POUR core principles. Below are the **most essential rules** every team should apply. Rules that are new in WCAG 2.2 are marked with 🆕.
 
 ### Perceivable
 
 | **Rule**                             | **Description**                                                                       |
 |:-------------------------------------|:--------------------------------------------------------------------------------------|
 | **Provide text alternatives**        | Every image must have meaningful `alt` text or `alt=""` if decorative                 |
-| **Ensure sufficient contrast**       | Text must have a minimum contrast ratio of **4.5:1** (normal) or **3:1** (large text) |
+| **Ensure sufficient contrast**       | Text must have a minimum contrast ratio of **4.5:1** (normal) or **3:1** (large text). Icons that carry meaning, the borders of input fields, and focus indicators need **3:1** against adjacent colors. See [Colors](/docs/colors#accessibility-contrast) |
 | **Don’t rely on color alone**        | Use icons, labels, or patterns in addition to color (e.g., for status indicators)     |
 | **Provide captions and transcripts** | Videos must have captions, audio must have transcripts                                |
-| **Responsive layout**                | Content must be readable and reflow on different screen sizes and zoom levels         |
+| **Responsive layout**                | Content must reflow without horizontal scrolling at a width of **320 CSS px** (= 400% zoom on a 1280 px screen) and stay usable when text is enlarged to 200% |
 
 ### Operable
 
 | **Rule**                                   | **Description**                                                                      |
 |:-------------------------------------------|:-------------------------------------------------------------------------------------|
-| **Everything must be keyboard accessible** | All interactive elements must be usable via `Tab`, `Enter`, `Space`                  |
+| **Everything must be keyboard accessible** | All interactive elements must be usable via `Tab`, `Enter`, `Space` (and arrow keys inside composite widgets such as menus, tabs, or listboxes) |
 | **Provide visible focus states**           | Show a clear visual indicator when an element is focused                             |
+| 🆕 **Don’t hide the focused element**      | Sticky headers, footers, cookie banners, or chat widgets must not cover the element that has focus (e.g., use `scroll-padding`) |
 | **Avoid keyboard traps**                   | Users must always be able to move in and out of modals or widgets using the keyboard |
 | **Use logical tab order**                  | Elements must follow a logical, intuitive tabbing sequence                           |
+| 🆕 **Make targets large enough**           | Clickable targets must be at least **24 × 24 CSS px**, or have enough space around them. See [Buttons](/docs/buttons#target-size) |
+| 🆕 **Offer an alternative to dragging**    | Everything that works by dragging (e.g., sorting, sliders, drag and drop uploads) must also work with single clicks or taps |
 | **Avoid flashing content**                 | No more than 3 flashes per second (prevents seizures)                                |
 
 ### Understandable
@@ -65,6 +68,9 @@ The **WCAG 2.2** defines accessibility rules under the four POUR core principles
 | **Provide consistent navigation**               | Menus and layout should not change unexpectedly between pages             |
 | **Use heading hierarchy**                       | Do not skip heading levels (`<h1>` → `<h2>` → `<h3>`)                     |
 | **Warn before timeouts or destructive actions** | Inform users when an action is permanent or a session will expire         |
+| 🆕 **Don’t ask for the same data twice**        | In multi-step processes, prefill or offer information the user already entered |
+| 🆕 **Keep help in a consistent place**          | Help, contact, or FAQ links appear in the same place on every page         |
+| 🆕 **Make login accessible**                    | Don’t require users to remember, transcribe, or solve something to log in: allow password managers and pasting, offer passkeys or single sign-on, avoid puzzle CAPTCHAs |
 
 ### Robust
 
@@ -73,7 +79,7 @@ The **WCAG 2.2** defines accessibility rules under the four POUR core principles
 | **Use semantic HTML**                        | Use proper elements (`<button>`, `<nav>`, `<main>`) for better screen reader support |
 | **Use ARIA only when necessary**             | Prefer native HTML before using ARIA roles                                           |
 | **Ensure compatibility with assistive tech** | Test with screen readers (e.g., NVDA, VoiceOver) and alternative input methods       |
-| **Validate your HTML**                       | Broken markup can prevent assistive tools from interpreting your page                |
+| **Validate your HTML**                       | Broken markup can prevent assistive tools from interpreting your page. WCAG 2.2 removed the old “Parsing” criterion, but invalid nesting and duplicate IDs still break labels and ARIA references |
 
 ### Minimum WCAG Levels
 
@@ -87,62 +93,88 @@ The **WCAG 2.2** defines accessibility rules under the four POUR core principles
     **Aim for WCAG 2.2 Level AA** as the minimum standard in every web project.
 </Callout>
 
+### ⚖️ Legal Context {/* #legal-context */}
+
+- **TUM is a public body.** Its websites and mobile apps fall under the [EU Web Accessibility Directive](https://digital-strategy.ec.europa.eu/en/policies/web-accessibility) (EU) 2016/2102, which Bavaria implements in Art. 14 of the Bavarian Disability Equality Act (BayBGG). Besides being accessible, each website and app needs an **accessibility statement** and a way for users to **report barriers**.
+- **The technical reference is EN 301 549.** The harmonised version V3.2.1 refers to WCAG 2.1 AA. ETSI published V4.1.1 in 2026, which adopts WCAG 2.2 AA; it becomes the legal reference once it is cited in the Official Journal of the EU. Building for WCAG 2.2 AA now covers both.
+- **The [European Accessibility Act](https://commission.europa.eu/strategy-and-policy/policies/justice-and-fundamental-rights/disability/european-accessibility-act-eaa_en)** (Directive (EU) 2019/882, in Germany the *Barrierefreiheitsstärkungsgesetz*, BFSG) has applied since 28 June 2025. It covers certain products and consumer services of companies, such as e-commerce, banking, e-books, and telecommunications. Keep it in mind when software from our projects is offered commercially, for example by a spin-off.
+
+<Callout variant={CalloutVariant.info}>
+    This is an overview, not legal advice. If you are unsure which rules apply to your application, ask before you publish it.
+</Callout>
+
 ---
 
 ## ⚙️ Recommended Tools (Dev, Design & Automation)
 
 ### 🛠 Developer Tools
 
-| **Tool**                                                                           | **Integration**                                            | **Purpose**                                 |
-|:-----------------------------------------------------------------------------------|:-----------------------------------------------------------|:--------------------------------------------|
-| **[axe-core](https://www.deque.com/axe/)**                                         | Browser extension, GitHub Action, CLI, CI pipelines, Figma | Industry-standard automated A11y testing    |
-| **[WAVE](https://wave.webaim.org/)**                                               | Browser extension                                          | Web Evaluation Tool                         |
-| **[eslint-plugin-jsx-a11y](https://www.npmjs.com/package/eslint-plugin-jsx-a11y)** | ESLint                                                     | Lints JSX for accessibility issues          |
-| **[storybook-addon-a11y](https://storybook.js.org/addons/@storybook/addon-a11y)**  | Storybook                                                  | Instant feedback on component accessibility |
-| **[cypress-axe](https://www.cypress.io/blog/introducing-cypress-accessibility)**   | Cypress                                                    | E2E tests with accessibility assertions     |
-| **[jest-axe](https://www.npmjs.com/package/jest-axe)**                             | Jest                                                       | Unit tests for accessibility violations     |
-| **[Pa11y](https://pa11y.org/)**                                                    | CLI, CI                                                    | Site-wide accessibility reports             |
+| **Tool**                                                                                                                         | **Integration**                                     | **Purpose**                                                                                  |
+|:---------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------|:---------------------------------------------------------------------------------------------|
+| **[axe-core](https://www.deque.com/axe/)**                                                                                       | Browser extension, CLI, test frameworks, CI         | Industry-standard engine for automated A11y testing (also used by most tools below)         |
+| **[WAVE](https://wave.webaim.org/)**                                                                                             | Browser extension                                   | Web Evaluation Tool, visualizes issues and the page structure                                |
+| **[Lighthouse](https://developer.chrome.com/docs/lighthouse/accessibility/scoring)**                                             | Chrome DevTools, CLI, CI                            | Quick accessibility audit (based on axe-core) together with performance and SEO              |
+| **[eslint-plugin-jsx-a11y](https://www.npmjs.com/package/eslint-plugin-jsx-a11y)**                                               | ESLint (React)                                      | Lints JSX for accessibility issues                                                           |
+| **[angular-eslint](https://github.com/angular-eslint/angular-eslint/tree/main/packages/angular-eslint/src/configs)**             | ESLint (Angular), config `templateAccessibility`    | Lints Angular templates for accessibility issues                                             |
+| **[@storybook/addon-a11y](https://storybook.js.org/docs/writing-tests/accessibility-testing)**                                   | Storybook                                           | Checks every story; with `parameters.a11y.test = 'error'` violations fail the tests          |
+| **[@axe-core/playwright](https://playwright.dev/docs/accessibility-testing)**                                                    | Playwright                                          | E2E tests with accessibility assertions                                                      |
+| **[cypress-axe](https://github.com/component-driven/cypress-axe)**                                                               | Cypress                                             | E2E tests with accessibility assertions                                                      |
+| **[jest-axe](https://github.com/NickColley/jest-axe)** or **axe-core** directly                                                  | Jest, Vitest                                        | Unit tests for accessibility violations (jsdom cannot check color contrast)                  |
+| **[Pa11y](https://pa11y.org/)**                                                                                                  | CLI, CI (`pa11y-ci`)                                | Site-wide accessibility reports                                                              |
 
 ### 🧪 Designer & Figma Tools
 
-| **Tool**                                                                                                    | **Purpose**                               |
-|:------------------------------------------------------------------------------------------------------------|:------------------------------------------|
-| **[axe-core](https://www.deque.com/axe/)**                                                                  | Industry-standard automated A11y testing  |
-| **[Stark](https://www.figma.com/community/plugin/732603254453395948/stark-contrast-accessibility-checker)** | Color contrast checker, vision simulation |
-| **[Able](https://www.figma.com/community/plugin/734693888346260052/able-friction-free-accessibility)**      | Color vision simulator                    |
-| **[Contrast](https://www.figma.com/community/plugin/748533339900865323/contrast)**                          | Quick WCAG AA/AAA check in Figma          |
+| **Tool**                                                                                                                       | **Purpose**                                         |
+|:-------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------|
+| **[axe for Designers](https://www.figma.com/community/plugin/1085612091163821851/axe-for-designers-a-free-accessibility-plugin)** | Accessibility checks of designs, based on axe rules |
+| **[Stark](https://www.figma.com/community/plugin/732603254453395948/stark-contrast-accessibility-ai-checker)**                  | Color contrast checker, vision simulation           |
+| **[Able](https://www.figma.com/community/plugin/734693888346260052/able-friction-free-accessibility)**                          | Color vision simulator                              |
+| **[Contrast](https://www.figma.com/community/plugin/748533339900865323/contrast)**                                              | Quick WCAG AA/AAA check in Figma                    |
 
 ### ⚙️ DevOps / CI Integration
 
-* Integrate **[axe-core](https://docs.deque.com/linter/4.0.0/en/axe-linter-github-action)** or **[Pa11y](https://github.com/marketplace/actions/pa11y-actions)** into **GitHub Actions**, GitLab CI, or Jenkins to catch issues automatically in PRs.
-* Sample GitHub Action with `axe`:
+* Run accessibility checks in the **pull request pipeline** (GitHub Actions, GitLab CI, Jenkins) so that regressions are caught before they are merged: for example with **[@axe-core/playwright](https://playwright.dev/docs/accessibility-testing)** in your E2E tests, **[Pa11y](https://github.com/marketplace/actions/pa11y-actions)**, or Deque’s **[axe Linter action](https://docs.deque.com/linter/4.0.0/en/axe-linter-github-action/)** (needs an API key from Deque).
+* Sample Playwright test with `axe` that fails on WCAG 2.2 A/AA violations:
 
-```yaml
-- uses: dequelabs/axe-linter-action@v1
-  with:
-    api_key: ${{ secrets.AXE_LINTER_API_KEY }}
-    github_token: ${{ secrets.GITHUB_TOKEN }}
+```ts
+import { test, expect } from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
+
+test('start page has no detectable WCAG A/AA violations', async ({ page }) => {
+  await page.goto('/');
+  const results = await new AxeBuilder({ page })
+    .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'])
+    .analyze();
+  expect(results.violations).toEqual([]);
+});
 ```
+
+<Callout variant={CalloutVariant.warning}>
+    Automated tools only find **part** of the accessibility issues. A passing axe run does not mean that your application is accessible: always test with the keyboard and a screen reader as well.
+</Callout>
 
 ## ✅ Quick Checklist for Developers
 
 * Use real `<button>` elements with clear, visible text or accessible `aria-label`.
 * Use real `<a href="">` for all links that navigate – not `<div>` or `<span>`.
 * All interactive components (menus, modals, sliders) are fully **keyboard accessible**.
-* All buttons, inputs, links show a **visible focus ring** (never remove it!).
+* All buttons, inputs, links show a **visible focus ring** (never remove it!), and sticky headers or banners never cover the focused element.
+* Clickable targets are at least **24 × 24 CSS px** (or have enough space around them).
 * Use a **clear heading structure**: one `<h1>`, then logical levels (`<h2>`, `<h3>`, …).
 * All images have meaningful `alt` attributes, or `alt=""` if decorative.
 * Every form input has a **visible `<label>`**, and all fields are grouped logically.
 * Errors are explained in **text**, not just with color or icons.
-* Text and UI elements meet **WCAG AA contrast** (4.5:1 for body text, 3:1 for large).
+* Text and UI elements meet **WCAG AA contrast** (4.5:1 for body text, 3:1 for large text and UI components) in **light and dark mode**.
 * Use **semantic HTML elements** (`<nav>`, `<main>`, `<section>`, `<ul>`, etc.).
 * Do **not rely on color alone** – always include text, icons, or shapes.
-* **Animations should be subtle and non-distracting.** If motion is used, ensure that users who prefer reduced motion can opt out through system settings.
-* All modals/dialogs are **focus-trapped** and closable with `Esc`.
+* **Animations should be subtle and non-distracting.** If motion is used, respect the system setting through the [`prefers-reduced-motion`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion) media query.
+* The UI stays usable in **forced colors mode** (e.g., Windows High Contrast): `box-shadow` and background images are removed there, so don’t use them as the only indicator of focus or state. Use [`forced-colors`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/forced-colors) for small fixes.
+* All modals/dialogs are **focus-trapped** and closable with `Esc`. The native [`<dialog>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog) element opened with `showModal()` does both for you.
 * No **keyboard traps** – users must always be able to navigate forward and back.
 * Use ARIA roles and attributes **only when needed**, and never to “fix” bad HTML.
-* Ensure **responsive layout**: zoomable, screen-reader friendly, mobile accessible.
-* Run automated tests with tools like **axe-core**, **eslint-plugin-jsx-a11y**, or **Pa11y**.
+* Ensure **responsive layout**: zoomable (never disable pinch-zoom), screen-reader friendly, mobile accessible.
+* Login works with **password managers, paste, and passkeys** – no puzzles or transcribing codes without an alternative.
+* Run automated tests with tools like **axe-core**, **eslint-plugin-jsx-a11y**, **angular-eslint**, or **Pa11y**.
 * Test with a **screen reader** at least once (VoiceOver, NVDA, or TalkBack).
 
 ---
@@ -152,6 +184,9 @@ The **WCAG 2.2** defines accessibility rules under the four POUR core principles
 | **Resource**                                                                         | **Description**                            |
 |:-------------------------------------------------------------------------------------|:-------------------------------------------|
 | [WCAG 2.2 Guidelines](https://www.w3.org/TR/WCAG22/)                                 | The official reference                     |
+| [How to Meet WCAG 2.2 (Quick Reference)](https://www.w3.org/WAI/WCAG22/quickref/)    | Filterable list of all criteria with techniques |
+| [What’s New in WCAG 2.2](https://www.w3.org/WAI/standards-guidelines/wcag/new-in-22/) | The new criteria explained with examples   |
+| [WAI-ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/)                | Keyboard and ARIA patterns for widgets (menus, tabs, dialogs, …) |
 | [WebAIM](https://webaim.org/)                                                        | Practical, accessible web dev resources    |
 | [Deque University](https://dequeuniversity.com/)                                     | Training and tools by creators of axe-core |
 | [MDN Accessibility Docs](https://developer.mozilla.org/en-US/docs/Web/Accessibility) | Developer-oriented docs                    |

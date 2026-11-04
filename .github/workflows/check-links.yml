@@ -1,0 +1,38 @@
+name: Check External Links
+
+# Checks the external links of the guidelines once a week.
+# Internal links and anchors are already checked by the build.
+on:
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Check links
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
+        with:
+          args: >-
+            --config lychee.toml
+            --root-dir "${{ github.workspace }}/guidelines"
+            --no-progress
+            'guidelines/docs/**/*.mdx'
+            'guidelines/docs/**/*.md'
+            'guidelines/src/pages/*.md'
+            'guidelines/docusaurus.config.ts'
+            'README.md'
+            'guidelines/README.md'
+          fail: true
