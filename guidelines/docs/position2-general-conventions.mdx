@@ -16,20 +16,20 @@ import Sidebar2Example from './assets/general-conventions/sidebar2.png';
 # General Conventions
 
 ## 🏠 Landing Page
-- **Features & FAQs** should be prominently displayed to help new users understand what the app is used for
+- **Features & FAQs** should be prominently displayed to help new users understand what the app is used for.
 - The **Login button** should be highly visible for quick access.
 - **Most features** should be accessible **before requiring login** (avoid an early login wall).
 
 <details>
     <summary>Example</summary>
 
-    <Image src={LandingPageExample} alt={"Example of a landing page where you can see features and frequently asked questions"} size={ImageSize.large} />
+    <Image src={LandingPageExample} alt={"Example of the Hephaestus landing page with a short introduction, the main features, and frequently asked questions"} size={ImageSize.large} />
 </details>
 
 ## Header Design
 - Should include (in this order):
   - **App Name** + **Version Number**
-  - **Dark Mode Toggle 🌙/☀️**
+  - **Dark Mode Toggle 🌙/☀️** (follow the system setting until the user picks a mode, and remember the choice)
   - **Login Button**
 - Should be max. **3.75rem in height**.
 - Should make use of the **primary color theme**.
@@ -42,10 +42,10 @@ import Sidebar2Example from './assets/general-conventions/sidebar2.png';
 
 ## Footer Design
 - Should include:
-- **"Built by"** attribution 👨‍💻
-- **About & Legal pages** 📜
-- **Commit Sha and version** of deployed app
-- **Bug report / feature request link** 🐞
+  - **"Built by"** attribution 👨‍💻
+  - **About & Legal pages** 📜 (imprint, privacy policy, and an [accessibility statement](/docs/accessibility#legal-context) with a way to report barriers)
+  - **Commit SHA and version** of deployed app
+  - **Bug report / feature request link** 🐞
 - **Non-sticky**: The footer should **not** remain fixed while scrolling.
 
 <details>
@@ -69,7 +69,7 @@ import Sidebar2Example from './assets/general-conventions/sidebar2.png';
 - **Project context** should be displayed at the **top** of the sidebar, which can be used to quickly switch projects.
 - The other items should only be **used for switching different in-project contexts** but **not for switching between projects**.
 - **Project settings** should be placed **at the bottom** of the sidebar with a divider above.
-- Items in the sidebar should contain an **icon** and a **short text**
+- Items in the sidebar should contain an **icon** and a **short text**.
 - Sidebar should be **collapsible & expandable** via a **prominent chevron icon**.
 - Should make use of the **primary color theme** or be at least visually highlighted.
 - On mobile devices:
@@ -80,32 +80,36 @@ import Sidebar2Example from './assets/general-conventions/sidebar2.png';
     <summary>Example</summary>
 
     <div style={{ display: 'flex', gap: '1rem', justifyContent: 'space-evenly' }}>
-        <Image src={Sidebar1Example} alt={"Screenshot of the Helios header"} />
-        <Image src={Sidebar2Example} alt={"Screenshot of the Helios header"} />
+        <Image src={Sidebar1Example} alt={"Screenshot of the Artemis course sidebar: the course at the top, the selected item highlighted, and a chevron at the bottom to collapse the sidebar"} />
+        <Image src={Sidebar2Example} alt={"Screenshot of the Helios sidebar: the repository at the top, the selected item highlighted, and a chevron on the edge to collapse the sidebar"} />
     </div>
 </details>
 
 ## 🔐 Authentication
-- If **Keycloak** is used, the **Keycloakify theme** should be applied for a unified login experience for all AET apps.
+- If **Keycloak** is used, apply a **shared AET login theme** instead of the Keycloak default, so that all AET apps offer the same login experience.
+  [Keycloakify](https://www.keycloakify.dev/) lets you build such a theme with React, Angular, or Svelte (Helios does this, see the example below).
+  [keycloak-tum-login-theme](https://github.com/ls1intum/keycloak-tum-login-theme) contains a TUM-styled Keycloak theme with passkey support.
+- Make the login **accessible** ([WCAG 2.2, 3.3.8](https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-minimum.html)):
+  - Allow **password managers** and **pasting** into all login fields (correct `autocomplete` attributes, no paste blocking).
+  - Prefer **single sign-on** and **passkeys** over passwords.
+  - Don’t use puzzle CAPTCHAs or ask users to transcribe codes without an alternative.
 
 <details>
     <summary>Example</summary>
 
-    <Image src={LoginExample} alt={"Screenshot of the Helios header"} size={ImageSize.large} />
+    <Image src={LoginExample} alt={"Screenshot of the Helios login page in dark mode with a single button to sign in with GitHub"} size={ImageSize.large} />
 </details>
 
 ## ℹ️ About Page
 - Should include:
-- 📸 **Features with screenshots** for clarity.
-- 🤝 **Contributor information**  to acknowledge contributions.
-- 🛠️ **Developer details** such as **version number, GitHub SHA** etc.
-
-Thanks for following these recommendations, with that we ensure a **modern, accessible, and user-friendly** experience for AET web applications! 🚀
+  - 📸 **Features with screenshots** for clarity.
+  - 🤝 **Contributor information** to acknowledge contributions.
+  - 🛠️ **Developer details** such as **version number, GitHub SHA** etc.
 
 <details>
     <summary>Example</summary>
 
-    <Image src={AboutExample} alt={"Example of an about page from PROMPT displaying and explanation of what PROMPT is, what the core features are, who the contributors are and release information."} size={ImageSize.large} />
+    <Image src={AboutExample} alt={"Example of an about page from PROMPT displaying an explanation of what PROMPT is, what the core features are, who the contributors are, and release information."} size={ImageSize.large} />
 </details>
 
 ## Color Theme
@@ -115,10 +119,13 @@ It uses a similar color theme as the main TUM website.
 Please use - if possible - only the provided colors on the page, through the tokens and not as hard-coded values.
 
 ### Legacy: PrimeNG
-Applications that still use PrimeNG can use the [sample theme config file for primeng](./assets/general-conventions/primeng.config.ts) until they migrate.
-It amends the [Aura preset from PrimeNG](https://github.com/primefaces/primeng/tree/master/packages/themes/src/presets/aura) and uses the same primary color.
+Applications that still use PrimeNG can use the [sample theme config file for PrimeNG](./assets/general-conventions/primeng.config.ts) until they migrate.
+It amends the [Aura preset](https://github.com/primefaces/primeuix/tree/main/packages/themes/src/presets/aura) and uses the same primary color.
+The presets are published as `@primeuix/themes`; the older `@primeng/themes` package is deprecated.
 
-# Further Ideas to Improve UI Design@AET
-- Add keycloakify project for AET that is included by different projects
+Thanks for following these recommendations, with that we ensure a **modern, accessible, and user-friendly** experience for AET web applications! 🚀
+
+## Further Ideas to Improve UI Design@AET
+- Agree on one shared Keycloak login theme that all AET projects include
 - Add boilerplate html code for Imprint etc.
-- Agree on a single icon library for all projects (e.g. tabler)
+- Agree on a single icon library for all projects (e.g. tabler). The built-in icons of TUM AET UI and the icons in Artemis come from Font Awesome Free, which makes it a natural candidate

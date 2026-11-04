@@ -14,17 +14,19 @@ Note: There is a difference between the imports in `.mdx` files and raw `.md` fi
    ```
 3. Use the imported image in the `Image` component
    ```
-    <Image src={SeoMetaHeaderExample} alt={"Example of a good heading structure shown in the SEO META in 1 CLICK tool"} />
-    ```
+   <Image src={SeoMetaHeaderExample} alt={"Example of a good heading structure shown in the SEO META in 1 CLICK tool"} />
+   ```
+4. Write an `alt` text that describes what the screenshot shows and why it matters (e.g., "Screenshot of the Helios login page with a single button to sign in with GitHub"), not only where it comes from.
+   Use `alt=""` only for purely decorative images.
    
 ### SVGs
 1. Import the SVG as ReactComponent
    ```
    import RedirectIcon from './assets/arrow-up-right-from-square-solid-full.svg';
    ```
-2. Use the imported SVG as a component
+2. Use the imported SVG as a component. SVGs have no `alt` attribute: give meaningful icons `role="img"` and an `aria-label`, and hide decorative ones with `aria-hidden="true"`
    ```
-   <RedirectIcon style={{width: "20px", height: "20px"}} alt={"Redirect Icon"} aria-label={"Redirect Icon"} />
+   <RedirectIcon style={{width: "20px", height: "20px"}} role="img" aria-label="Redirect icon" />
    ```
 
 
