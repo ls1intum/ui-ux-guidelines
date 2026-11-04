@@ -109,14 +109,16 @@ Thanks for following these recommendations, with that we ensure a **modern, acce
 </details>
 
 ## Color Theme
-We provide a [sample theme config file for primeng](./assets/general-conventions/primeng.config.ts).
+Use the **[TUM AET UI component library](/docs/component-library)**. It ships the AET color theme as design tokens (`--tumaet-ui-primary-color` and others) with a matching dark theme, for Angular (`@tumaet/ui-angular`) and React (`@tumaet/ui-react`).
 
 It uses a similar color theme as the main TUM website.
-Please use - if possible - only the provided colors on the page.
-The supplied file is amending the [Aura preset from PrimeNG](https://github.com/primefaces/primeng/tree/master/packages/themes/src/presets/aura).
+Please use - if possible - only the provided colors on the page, through the tokens and not as hard-coded values.
+
+### Legacy: PrimeNG
+Applications that still use PrimeNG can use the [sample theme config file for primeng](./assets/general-conventions/primeng.config.ts) until they migrate.
+It amends the [Aura preset from PrimeNG](https://github.com/primefaces/primeng/tree/master/packages/themes/src/presets/aura) and uses the same primary color.
 
 # Further Ideas to Improve UI Design@AET
 - Add keycloakify project for AET that is included by different projects
 - Add boilerplate html code for Imprint etc.
-- Add color theme for AET following the TUM theme
 - Agree on a single icon library for all projects (e.g. tabler)
