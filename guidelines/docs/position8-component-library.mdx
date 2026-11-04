@@ -1,0 +1,136 @@
+---
+sidebar_position: 8
+slug: component-library
+---
+
+import Callout from "../src/components/callout/callout";
+import {CalloutVariant} from "../src/components/callout/callout.types";
+
+# TUM AET UI Component Library
+
+**TUM AET UI** is the design system of the AET research group as code: components, design tokens, and a light and a dark theme that follow these guidelines.
+It is published for two frameworks. The two packages look and behave the same and share the same design tokens and class names, but they are released separately and have **independent version numbers**.
+
+| | Angular | React |
+|:--|:--|:--|
+| **Package** | [`@tumaet/ui-angular`](https://www.npmjs.com/package/@tumaet/ui-angular) | [`@tumaet/ui-react`](https://www.npmjs.com/package/@tumaet/ui-react) |
+| **Source** | [Artemis repository, `packages/tum-aet-ui`](https://github.com/ls1intum/Artemis/tree/develop/packages/tum-aet-ui) | [`ls1intum/tum-aet-ui-react`](https://github.com/ls1intum/tum-aet-ui-react) |
+| **Documentation** | [Component reference](https://docs.artemis.tum.de/developer/tum-aet-ui-reference) | Storybook with props, states, and guides (`pnpm storybook` in the repository) |
+| **Requires** | Angular 22 (see the package's peer dependencies), no Zone.js | React 19 |
+| **Dependencies** | Angular CDK and Angular Aria as peer dependencies | none besides `react` and `react-dom` |
+| **Styles** | Precompiled `styles.css`, no Tailwind setup needed | One plain `styles.css`, no Tailwind or CSS-in-JS |
+| **Status** | In use in Artemis | First release (0.1.0), the API may change in any 0.x release |
+
+<Callout variant={CalloutVariant.info}>
+    New AET applications should use TUM AET UI instead of building their own buttons, inputs, dialogs, and so on. If a component is missing or behaves differently from these guidelines, open an issue in the repository of the package instead of working around it locally.
+</Callout>
+
+## Getting started
+
+### Angular
+
+```sh
+npm install @tumaet/ui-angular
+```
+
+Add the stylesheet to `angular.json`, after your existing global styles:
+
+```json
+{
+    "styles": ["src/styles.scss", "@tumaet/ui-angular/styles.css"]
+}
+```
+
+```ts
+import { TumAetUiButtonComponent } from '@tumaet/ui-angular';
+```
+
+```html
+<tumaet-ui-button (clicked)="save()">Save</tumaet-ui-button>
+```
+
+### React
+
+```sh
+npm install @tumaet/ui-react
+```
+
+Import the stylesheet once, for example in your entry file:
+
+```tsx
+import '@tumaet/ui-react/styles.css';
+import { Button } from '@tumaet/ui-react';
+
+export function SaveButton({ onSave }: { onSave: () => void }) {
+  return <Button onClick={onSave}>Save</Button>;
+}
+```
+
+## Themes and design tokens
+
+Both packages use the same CSS custom properties, all prefixed with `--tumaet-ui-`. They follow the three-layer token model described in the [color guidelines](/docs/colors): applications use the semantic tokens, never raw colors.
+
+- **Dark mode:** set `data-theme="dark"` on `<html>` (remove it for light). This is what the dark mode toggle in the [header](/docs/general-conventions#header-design) should do.
+- **Customizing:** override the tokens in your own stylesheet, on `:root`. Your declarations win over the package defaults, which live in a low-priority cascade layer. Provide light and dark values when you override colors.
+- **Typical tokens:** `--tumaet-ui-primary-color`, `--tumaet-ui-text-color`, `--tumaet-ui-muted-color`, `--tumaet-ui-content-background`, `--tumaet-ui-border-color`, `--tumaet-ui-focus-color`, the state colors `--tumaet-ui-state-{danger,success,warning,info}`, and scales for spacing, font sizes, radii, and shadows.
+
+```css
+:root {
+  --tumaet-ui-primary-color: #3779b4;
+}
+```
+
+<Callout variant={CalloutVariant.warning}>
+    Do not hard-code colors in application styles. Use the tokens, so that the dark theme, contrast, and later changes of the AET theme apply to your application automatically.
+</Callout>
+
+## Accessibility
+
+The components are built to the accessibility guidelines on [this site](/docs/accessibility): roles, accessible names, keyboard operation, visible focus, and focus handling in dialogs and overlays follow the WAI-ARIA Authoring Practices. The tests of both packages run axe-core, and every story in the React Storybook is checked in light and dark for color contrast. Your application is still responsible for labels, headings, and page structure.
+
+Texts that a component produces itself (for example "No results" or the label of a close button) are English by default and can be replaced with your own translations.
+
+## Components
+
+| Component | Angular | React |
+|:--|:-:|:-:|
+| Autocomplete | ✅ | ✅ |
+| Button, Button group | ✅ | ✅ |
+| Card | ✅ | ✅ |
+| Checkbox | ✅ | ✅ |
+| Chip | ✅ | ✅ |
+| Confirm dialog | ✅ | ✅ |
+| Date picker, Calendar | ✅ | ✅ |
+| Dialog | ✅ | ✅ |
+| Empty state | ✅ | ✅ |
+| Form field | ✅ | ✅ |
+| Icon field | ✅ | ✅ |
+| Input, Input group, Input number | ✅ | ✅ |
+| List | ✅ | ✅ |
+| Menu | ✅ | ✅ |
+| Message | ✅ | ✅ |
+| Multi select | ✅ | ✅ |
+| Paginator | ✅ | ✅ |
+| Panel | ✅ | ✅ |
+| Popover | ✅ | ✅ |
+| Progress bar, Progress spinner | ✅ | ✅ |
+| Radio button | ✅ | ✅ |
+| Search field | ✅ | ✅ |
+| Select | ✅ | ✅ |
+| Select button | ✅ | ✅ |
+| Splitter | – | ✅ |
+| Table (with sortable columns) | ✅ | ✅ |
+| Virtual-scroll table | ✅ | – |
+| Tabs | ✅ | ✅ |
+| Tag | ✅ | ✅ |
+| Toggle switch | ✅ | ✅ |
+| Tooltip | ✅ | ✅ |
+| Charts | ✅ | – |
+
+The Angular `DialogService` has no React counterpart, because React dialogs are components that you render when needed.
+
+## Relation to the guidelines
+
+- **Buttons:** the [button guidelines](/docs/buttons) are implemented by the Button component and its variants. Use it instead of styling a native `<button>`.
+- **Colors:** the primary color of the [color theme](/docs/general-conventions#color-theme) is `--tumaet-ui-primary-color`.
+- **Applications that still use PrimeNG** can keep the [sample PrimeNG theme](/docs/general-conventions#color-theme) until they migrate. New applications should not start with PrimeNG.
